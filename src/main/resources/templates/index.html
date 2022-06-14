@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css files/index.css">
+    <script type="text/javascript" src="/JS files/signin.js"></script>
+    <title>Welcome to Fitly</title>
+</head>
+<body>
+    <video autoplay muted playsinline src="" type="" id="myVideo">
+        <script type="text/javascript" src="/JS files/index.js"></script>
+    </video>
+<div class="content" id="content">
+    <p class="apptitle">FitLy</p>
+    <div class="buttons">
+        <button class="signin" type="button" onclick="openForm()">Sign-in</button>
+        <div class="space"></div>
+        <button class="signup" type="button" onclick="openFormUp()">Sign-up</button>
+    </div>
+    </div>
+<div class="Form">
+    <div class="container" id="myForm">
+        <div class="text">Sign-in</div>
+        <form id ="logform" th:action="@{/}" method="post">
+            <div class="data">
+                <label>Email</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="data">
+                <label>Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="invalid" id="invalid">
+                <p>Invalid Email! Please try again.</p>
+            </div>
+            <div class="invalid" id="invalidpass">
+                <p>Invalid Password (must be 6 characters with no special characters) Please try again.</p>
+            </div>
+            <div class="logbutn">
+                <button type="button" onclick="checkEmail()">Submit</button>
+            </div>
+            <div class="logbutn">
+                <button type="button" onclick="closeForm()">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="Form">
+    <div class="container" id="myFormsignup">
+        <div class="text">Sign-up</div>
+        <form id ="upform" th:action="@{process_register}" method="post" th:object="${user}">
+            <div class="data">
+                <label>Email</label>
+                <input type="text" id="newemail" th:field="*{email}">
+            </div>
+            <div class="data">
+                <label>First Name</label>
+                <input type="text" id="fname" th:field="*{firstname}">
+            </div>
+            <div class="data">
+                <label>Last Name</label>
+                <input type="text" id="lname" th:field="*{lastname}">
+            </div>
+            <div class="data">
+                <label>Password</label>
+                <input type="password" id="newpassword" th:field="*{password}">
+            </div>
+            <div class="data">
+                <label>Re-Enter Password</label>
+                <input type="password" id="checkpassword">
+            </div>
+
+            <div class="invalid" id="invalidemail">
+                <p>Invalid Email! Please try again.</p>
+            </div>
+            <div class="invalid" id="invalidpass2">
+                <p>Invalid Password (must be 6 characters with no special characters) Please try again.</p>
+            </div>
+            <div class="invalid" id="notmatch">
+                <p>Passwords do not match! Please try again.</p>
+            </div>
+            <div class="invalid" id="nofname">
+                <p>Please enter a first name!</p>
+            </div>
+            <div class="invalid" id="nolname">
+                <p>Please enter a last name!</p>
+            </div>
+            <div class="logbutn">
+                <button type="button" onclick="checkEmailUp()">Submit</button>
+            </div>
+            <div class="logbutn">
+                <button type="button" onclick="closeFormUp()">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE  html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css files/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Add Food</title>
+</head>
+<body>
+<header>
+    <nav>
+        <p>FitLy</p>
+        <div class="navbar">
+            <a th:href="@{/home}">Home</a>
+            <a class = "currpage" href="#">Food</a>
+            <a href="#">Workouts</a>
+            <a href="#">Goals</a>
+            <a th:href="@{/about}">About</a>
+            <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
+                <input type="submit" value="Logout">
+            </form>
+            <a href="javascript:document.logoutbutt.submit()">Logout</a>
+        </div>
+    </nav>
+</header>
+<div class="foodform">
+    <div class="contain" id="form1">
+        <div class="text1">Add a food</div>
+        <form id ="upform" th:action="@{process_food}" method="post">
+            <div class="data">
+                <label>Food Name</label>
+                <input list="food-names" type="text" th:name="foodname" required>
+                <datalist id="food-names">
+                    <option th:each="Food : ${allfoods}" th:value="${Food.name}" th:text="${Food.name}"></option>
+                </datalist>
+            </div>
+            <div class="data">
+                <label>Date</label>
+                <input type="date" id="date" th:name="date">
+            </div>
+            <div class="data">
+                <label>Calories Per Serving</label>
+                <input type="number" id="calories" th:name="calories">
+            </div>
+            <div class="data">
+                <label>Servings</label>
+                <input type="number" id="servings" th:name="servings">
+            </div>
+            <div class="logbutn">
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
