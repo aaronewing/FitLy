@@ -34,7 +34,7 @@
 
 <div class="sortform">
     <div class="sortcontain">
-        <form id="sortform" th:action="@{viewfood}" method="post">
+        <form id="sortform" th:action="@{editfood}" method="post">
             <div class="sort"><input type="date" id="date1" th:name="date1" th:value="${datevalue}"
                                      onchange="this.form.submit()">
                 <button type="button" onclick="resetButton()">Reset Date</button>
