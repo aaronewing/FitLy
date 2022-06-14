@@ -71,4 +71,10 @@ public class AppService {
         List<User_Food> alluserfoods = userfoodrepo.findUserFoodByDate(user_id,date);
         return alluserfoods;
     }
+
+    public void DeleteByKeys(User user, Date date, Food food){
+        Integer user_id = user.getId();
+        Integer food_id = food.getId();
+        userfoodrepo.deleteUserFoodByKeys(user_id,date,food_id);
+    }
 }
