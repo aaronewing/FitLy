@@ -77,5 +77,23 @@ public class FoodController {
         }
     }
 
+    @PostMapping("/editfood")
+    public String viewfoodEdit(Model model, @RequestParam(value = "date1") String date) throws ParseException{
+        User user = service.getLoggedUser();
+        if (date.equals("")) {
+            model.addAttribute("datevalue", date);
+            List<User_Food> userfoods = service1.ListUserFood(user);
+            model.addAttribute("userfood", userfoods);
+            return "UpdateFood";
+        } else {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date parseddate = format.parse(date);
+            List<User_Food> userfoods = service1.FindByDateId(user, parseddate);
+            model.addAttribute("userfood", userfoods);
+            model.addAttribute("datevalue", date);
+            return "UpdateFood";
+        }
+    }
+
 }
 
