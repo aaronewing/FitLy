@@ -21,7 +21,7 @@
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
             <a class="currpage" href="#">Food</a>
-            <a href="#">Workouts</a>
+            <a th:href="@{/viewexe}">Workouts</a>
             <a href="#">Goals</a>
             <a th:href="@{/about}">About</a>
             <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
@@ -34,7 +34,7 @@
 
 <div class="sortform">
     <div class="sortcontain">
-        <form id="sortform" th:action="@{viewfood}" method="post">
+        <form id="sortform" th:action="@{editfood}" method="post">
             <div class="sort"><input type="date" id="date1" th:name="date1" th:value="${datevalue}"
                                      onchange="this.form.submit()">
                 <button type="button" onclick="resetButton()">Reset Date</button>
@@ -60,14 +60,14 @@
             <td th:text="${foods.calories}"></td>
             <td th:text="${foods.servings}"></td>
             <td>
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
             </td>
         </tr>
         </tbody>
     </table>
     <div class="logbutn">
-        <a th:href="@{/addfood}">
+        <a th:href="@{/viewfood}">
             <div class="logbutn">
                 <button class="button1"> Finish Editing</button>
             </div>

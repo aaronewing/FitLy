@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -77,23 +78,18 @@ public class FoodController {
         }
     }
 
-    @PostMapping("/editfood")
-    public String viewfoodEdit(Model model, @RequestParam(value = "date1") String date) throws ParseException{
-        User user = service.getLoggedUser();
-        if (date.equals("")) {
-            model.addAttribute("datevalue", date);
-            List<User_Food> userfoods = service1.ListUserFood(user);
-            model.addAttribute("userfood", userfoods);
-            return "UpdateFood";
-        } else {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parseddate = format.parse(date);
-            List<User_Food> userfoods = service1.FindByDateId(user, parseddate);
-            model.addAttribute("userfood", userfoods);
-            model.addAttribute("datevalue", date);
-            return "UpdateFood";
-        }
+    @GetMapping("/deletefood/{userid}/{date}/{foodid}")
+    public String deleteEmployee(@PathVariable(value = "date") String date,
+                                 @PathVariable(value = "foodid") Integer food_id,
+                                 @PathVariable(value = "userid") Integer user_id) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parseddate = format.parse(date);
+        User user = service.findById(user_id);
+        Food food = service1.findByID(food_id);
+        service1.DeleteByKeys(user,parseddate,food);
+        return "redirect:/viewfood";
     }
+
 
 }
 

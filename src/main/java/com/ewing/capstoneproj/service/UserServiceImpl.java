@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -38,6 +40,13 @@ public class UserServiceImpl implements UserService {
         User user = findByEmail(currentPrincipalName);
         return user;
     }
+
+    @Override
+    public User findById(Integer id) {
+        User user=repo.getReferenceById(id);
+        return user;
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

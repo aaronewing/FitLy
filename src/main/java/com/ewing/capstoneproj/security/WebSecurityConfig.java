@@ -39,7 +39,7 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home", "/about", "/addfood", "/viewfood").authenticated()
+                .antMatchers("/home", "/about", "/addfood", "/viewfood","/viewexe","/addexe").authenticated()
                 .anyRequest().permitAll()
                 .and()
 
@@ -47,7 +47,7 @@ public class WebSecurityConfig{
                 .loginPage("/")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/home")
-                .failureUrl("/login?error=true")
+                .failureUrl("/?error")
                 .permitAll()
                 .and()
 
