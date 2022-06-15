@@ -39,5 +39,5 @@ public class User implements Serializable {
     private List<User_Food> user_food = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<User_Excercises> user_excercises = new ArrayList<>();
+    private List<User_Exercises> user_exercises = new ArrayList<>();
 }

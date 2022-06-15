@@ -35,6 +35,9 @@
                 <label>Password</label>
                 <input type="password" id="password" name="password">
             </div>
+            <div class="invalid" th:if="${param.error}" id="secinvalid">
+                Invalid username and password.
+            </div>
             <div class="invalid" id="invalid">
                 <p>Invalid Email! Please try again.</p>
             </div>
@@ -101,5 +104,8 @@
         </form>
     </div>
 </div>
+    <script type="text/javascript">
+        checkLink();
+    </script>
 </body>
 </html>

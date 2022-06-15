@@ -14,17 +14,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "excercises")
-public class Excercises implements Serializable {
+@Table(name = "exercises")
+public class Exercises implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "excercises")
-    private List<User_Excercises> user_excercises = new ArrayList<>();
+    @OneToMany(mappedBy = "exercises")
+    private List<User_Exercises> user_exercises = new ArrayList<>();
 
 }

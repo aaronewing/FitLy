@@ -30,7 +30,7 @@
 <div class="foodform">
     <div class="contain" id="form1">
         <div class="text1">Add a food</div>
-        <form id ="upform" th:action="@{process_food}" method="post">
+        <form id ="fooform" th:action="@{process_food}" method="post">
             <div class="data">
                 <label>Food Name</label>
                 <input list="food-names" type="text" th:name="foodname" required>

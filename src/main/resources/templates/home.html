@@ -17,7 +17,7 @@
             <div class="navbar">
                 <a class = "currpage" href="#">Home</a>
                 <a th:href="@{/viewfood}">Food</a>
-                <a href="#">Workouts</a>
+                <a th:href="@{/viewexe}">Workouts</a>
                 <a href="#">Goals</a>
                 <a th:href="@{/about}">About</a>
                 <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="navlink">
+            <a th:href="@{/viewexe}" class="navlink">
                 <div class="navbox">
                     <div class="image" style="background-image: url('/pictures/barbell.png');"></div>
                     <div class="alltext">

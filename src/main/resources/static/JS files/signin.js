@@ -110,3 +110,12 @@ function checkEmailUp(){ //this actually checks email and password not just emai
         document.getElementById("nolname").style.display = "block";
     }
 }
+
+function checkLink(){
+    if(window.location.href.indexOf("?error") != -1){
+        document.getElementById("secinvalid").style.display= "block";
+        openForm();
+    } else{
+        console.log("no error!")
+    }
+}

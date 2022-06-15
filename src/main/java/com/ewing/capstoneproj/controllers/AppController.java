@@ -43,8 +43,13 @@ public class AppController {
 
     @PostMapping("/process_register")
     public String processRegistration(User user){
-        service.save(user);
-        return "redirect:success";
+        try {
+            service.save(user);
+            return "redirect:success";
+        }catch (Exception e){
+            System.out.println("catching exceptions hopefully");
+            return "redirect:/";
+        }
     }
 
 }
