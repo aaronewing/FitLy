@@ -89,6 +89,7 @@ public class GoalsController {
             model.addAttribute("incomplete", incomplete);
             List<Goals> complete = goalsService.completeGoalsList(user.getId());
             model.addAttribute("complete", complete);
+            //comment
             model.addAttribute("datevalue", date);
             return "viewGoals";
         }
