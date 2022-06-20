@@ -23,4 +23,7 @@ public interface UserExerciseRepository extends JpaRepository<User_Exercises, Us
     @Modifying
     @Query("DELETE FROM User_Exercises u where u.user_id = ?1 and u.date = ?2 and u.exercise_id = ?3 ")
     void deleteUserExerciseByKeys(Integer user_id, Date date, Integer exercise_id);
+
+    @Query("SELECT u FROM User_Exercises u where u.user_id = ?1 and u.date = ?2 and u.exercise_id = ?3")
+    User_Exercises getUserExerciseByKeys(Integer user_id, Date date, Integer exercise_id);
 }

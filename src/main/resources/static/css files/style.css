@@ -368,4 +368,8 @@ form .logbutn input[type = submit]:hover{
     
 }
 
+#welcometext{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 100;
+}
 

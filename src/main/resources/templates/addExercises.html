@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
         rel="stylesheet">
-  <title>Add Food</title>
+  <title>Add Exercises</title>
 </head>
 <body>
 <header>
@@ -19,7 +19,7 @@
       <a th:href="@{/home}">Home</a>
       <a th:href="@{/viewfood}">Food</a>
       <a class="currpage" href="#">Workout</a>
-      <a href="#">Goals</a>
+      <a th:href="@{/viewgoals}">Goals</a>
       <a th:href="@{/about}">About</a>
       <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
         <input type="submit" value="Logout">

@@ -40,4 +40,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user")
     private List<User_Exercises> user_exercises = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Goals> goals = new ArrayList<>();
 }

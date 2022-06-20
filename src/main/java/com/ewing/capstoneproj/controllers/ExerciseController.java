@@ -45,7 +45,7 @@ public class ExerciseController {
 
     }
     @GetMapping("/viewexe")
-    public String viewfoodPage(Model model) {
+    public String viewexePage(Model model) {
         User user = service.getLoggedUser();
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -83,6 +83,23 @@ public class ExerciseController {
         User user = service.findById(user_id);
         Exercises exercises = service1.findexeByID(exe_id);
         service1.exeDeleteByKeys(user,parseddate,exercises);
+        return "redirect:/viewexe";
+    }
+
+    @GetMapping("/upexe/{userid}/{date}/{exeid}")
+    public String upExe(@PathVariable(value = "date") String date,
+                                 @PathVariable(value = "exeid") Integer exe_id,
+                                 @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parseddate = format.parse(date);
+        User_Exercises update = service1.GetUserExeByKeys(user_id,parseddate,exe_id);
+        model.addAttribute("exe",update);
+        return "updateExercises";
+    }
+
+    @PostMapping("/exeupdate")
+    public String processupdate(@ModelAttribute("exe") User_Exercises update){
+        service1.updateUserExercises(update);
         return "redirect:/viewexe";
     }
 }
