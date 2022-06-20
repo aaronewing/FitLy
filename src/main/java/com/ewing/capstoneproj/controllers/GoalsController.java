@@ -90,6 +90,7 @@ public class GoalsController {
             List<Goals> complete = goalsService.completeGoalsList(user.getId());
             model.addAttribute("complete", complete);
             System.out.println("doing this for github failure");
+            System.out.println("doing this for github failure2");
             model.addAttribute("datevalue", date);
             return "viewGoals";
         }
