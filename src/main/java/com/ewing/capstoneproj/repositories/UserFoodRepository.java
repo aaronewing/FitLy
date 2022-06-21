@@ -3,6 +3,7 @@ package com.ewing.capstoneproj.repositories;
 import com.ewing.capstoneproj.UserFoodID;
 import com.ewing.capstoneproj.models.Food;
 import com.ewing.capstoneproj.models.User;
+import com.ewing.capstoneproj.models.User_Exercises;
 import com.ewing.capstoneproj.models.User_Food;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -24,5 +25,8 @@ public interface UserFoodRepository extends JpaRepository<User_Food, UserFoodID>
     @Modifying
     @Query("DELETE FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3 ")
     void deleteUserFoodByKeys(Integer user_id, Date date, Integer food_id);
+
+    @Query("SELECT u FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3")
+    User_Food getUserFoodByKeys(Integer user_id, Date date, Integer exercise_id);
 
 }

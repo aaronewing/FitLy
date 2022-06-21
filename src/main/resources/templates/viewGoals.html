@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
           rel="stylesheet">
     <script type="text/javascript" src="/JS files/viewFood.js"></script>
-    <title>View Food</title>
+    <title>View Goals</title>
 </head>
 <body>
 <header>
@@ -20,9 +20,9 @@
         <p>FitLy</p>
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
-            <a class="currpage" href="#">Food</a>
+            <a th:href="@{/viewfood}">Food</a>
             <a th:href="@{/viewexe}">Workouts</a>
-            <a th:href="@{/viewgoals}">Goals</a>
+            <a class="currpage" href="#">Goals</a>
             <a th:href="@{/about}">About</a>
             <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
                 <input type="submit" value="Logout">
@@ -31,45 +31,61 @@
         </div>
     </nav>
 </header>
-
+<h1>[[${#authentication.getPrincipal().getFirstName()}]]'s Goals</h1>
 <div class="sortform">
     <div class="sortcontain">
-        <form id="sortform" th:action="@{viewfood}" method="post">
-            <div class="sort"><input type="date" id="date1" th:name="date1" th:value="${datevalue}"
+        <form id="sortform1" th:action="@{viewgoals}" method="post">
+            <div class="sort"><input type="date" id="date2" th:name="incompletedate" th:value="${datevalue}"
                                      onchange="this.form.submit()">
-                <button type="button" onclick="resetButton()">Reset Date</button>
+                <button type="button" onclick="exeResetButton()">Show All</button>
             </div>
         </form>
     </div>
 </div>
 
 <div class="tablecontainer">
+    <h2>Current Goals</h2>
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Food Name</th>
-            <th scope="col">Calories Per Serving</th>
-            <th scope="col">Servings</th>
+            <th scope="col">Goal</th>
+            <th scope="col">Date added</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="foods : ${userfood}">
-            <td th:text="${foods.date}"></td>
-            <td th:text="${foods.food.name}"></td>
-            <td th:text="${foods.calories}"></td>
-            <td th:text="${foods.servings}"></td>
+        <tr th:each="goals : ${incomplete}">
+            <td th:text="${goals.text}"></td>
+            <td th:text="${goals.date}"></td>
             <td>
-                <a th:href="@{/upfood/{userid}/{date}/{foodid}(userid=${foods.user_id},date=${foods.date},foodid=${foods.food_id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deletefood/{userid}/{date}/{foodid}(userid=${foods.user_id},date=${foods.date},foodid=${foods.food_id})}" onclick="return confirm('Are you sure you want to delete this entry?')" class="btn btn-danger">Delete</a>
+                <a th:href="@{/changegoal/{goalid}(goalid=${goals.goal_id})}"  class="btn btn-primary">Mark as completed</a>
+                <a th:href="@{/deletegoal/{goalid}(goalid=${goals.goal_id})}" onclick="return confirm('Are you sure you want to delete this goal?')" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Completed Goals</h2>
+    <table class="table table-bordered" id="completedgoals">
+        <thead>
+        <tr>
+            <th scope="col">Goal</th>
+            <th scope="col">Date added</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="complete : ${complete}">
+            <td th:text="${complete.text}"></td>
+            <td th:text="${complete.date}"></td>
+            <td>
+                <a th:href="@{/deletegoal/{goalid}(goalid=${complete.goal_id})}" onclick="return confirm('Do you want to remove this goal from your completed list?')" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
     <div class="addbutton">
-        <a th:href="@{/addfood}">
-                <button class="button1"> Add Food</button>
+        <a th:href="@{/addgoal}">
+            <button class="button1"> Add Goal</button>
         </a>
     </div>
 </div>

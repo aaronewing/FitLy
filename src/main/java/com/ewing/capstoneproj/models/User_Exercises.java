@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
@@ -49,5 +50,6 @@ public class User_Exercises implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column (name = "date",insertable = false,updatable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 }

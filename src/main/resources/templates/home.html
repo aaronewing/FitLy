@@ -18,7 +18,7 @@
                 <a class = "currpage" href="#">Home</a>
                 <a th:href="@{/viewfood}">Food</a>
                 <a th:href="@{/viewexe}">Workouts</a>
-                <a href="#">Goals</a>
+                <a th:href="@{/viewgoals}">Goals</a>
                 <a th:href="@{/about}">About</a>
                 <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
                     <input type="submit" value="Logout">
@@ -28,13 +28,14 @@
         </nav>
     </header>
     <div class = "container">
+        <h1 id="welcometext"> Welcome [[${#authentication.getPrincipal().getFirstName()}]]!</h1>
         <div class="divider">
             <a th:href="@{/viewfood}" class="navlink">
                 <div class="navbox">
                     <div class="image" style="background-image: url('/pictures/healthyfood.jpg');"></div>
                     <div class="alltext">
                         <h3>Food</h3>
-                        <p>In the food page, You can add and display your consumed food and drinks!</p>
+                        <p>In the food page, You can add, edit and display your consumed food and drinks!</p>
                     </div>
                 </div>
             </a>
@@ -43,16 +44,16 @@
                     <div class="image" style="background-image: url('/pictures/barbell.png');"></div>
                     <div class="alltext">
                         <h3>Workouts</h3>
-                        <p>Coming soon!</p>
+                        <p>In the workout page, you can add, edit and display your exercise routine!</p>
                     </div>
                 </div>
             </a>
-            <a href="#" class="navlink">
+            <a th:href="@{/viewgoals}" class="navlink">
                 <div class="navbox">
                     <div class="image" style="background-image: url('/pictures/goals.jpg');"></div>
                     <div class="alltext">
                         <h3>Goals</h3>
-                        <p>Coming soon!</p>
+                        <p>In the goals page, you can add and view your in progress or completed health and fitness goals! </p>
                     </div>
                 </div>
             </a>

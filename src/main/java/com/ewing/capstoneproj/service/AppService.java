@@ -143,5 +143,31 @@ public class AppService {
         userexerepo.deleteUserExerciseByKeys(user_id,date,exercises_id);
     }
 
+    public User_Exercises GetUserExeByKeys(Integer user_id, Date date, Integer exercise_id){
+        User_Exercises exercises = userexerepo.getUserExerciseByKeys(user_id,date,exercise_id);
+        return exercises;
+    }
+
+    public User_Exercises updateUserExercises(User_Exercises exercises){
+        Exercises exercise = findexeByID(exercises.getExercise_id());
+        User user = userserv.findById(exercises.getUser_id());
+        exercises.setExercises(exercise);
+        exercises.setUser(user);
+        return userexerepo.save(exercises);
+    }
+
+    public User_Food GetUserFoodByKeys(Integer user_id, Date date, Integer foodid){
+        User_Food userfood = userfoodrepo.getUserFoodByKeys(user_id,date,foodid);
+        return userfood;
+    }
+
+    public User_Food updateUserFood(User_Food userfood){
+        Food food = findByID(userfood.getFood_id());
+        User user = userserv.findById(userfood.getUser_id());
+        userfood.setFood(food);
+        userfood.setUser(user);
+        return userfoodrepo.save(userfood);
+    }
+
 
 }
