@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="/css files/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
     <title>Add Food</title>
+    <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body>
 <header>
-    <nav>
-        <p>FitLy</p>
+    <nav class="navclass">
+        <div class="navimage">
+            <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+        </div>
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
-            <a class = "currpage" href="#">Food</a>
+            <a class="currpage" href="#">Food</a>
             <a th:href="@{/viewexe}">Workouts</a>
             <a th:href="@{/viewgoals}">Goals</a>
             <a th:href="@{/about}">About</a>

@@ -5,6 +5,7 @@ import com.ewing.capstoneproj.repositories.ExerciseRepository;
 import com.ewing.capstoneproj.repositories.FoodRepository;
 import com.ewing.capstoneproj.repositories.UserExerciseRepository;
 import com.ewing.capstoneproj.repositories.UserFoodRepository;
+import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,23 +41,27 @@ public class AppService {
 
     public List<Food> GetAllFoods(){
         List<Food> allfoods = repo.findAll();
+        for (int i = 0; i < allfoods.size(); i++){
+            Food food = allfoods.get(i);
+            food.setName(WordUtils.capitalizeFully(food.getName()));
+            allfoods.set(i,food);
+        }
         return allfoods;
     }
 
     public Food savefood(Food food){
-        Food existing = findByName(food.getName());
+        Food existing = findByName(food.getName().toUpperCase());
         if (existing != null){
-            System.out.println("Food already exists!");
+            return null;
         } else{
+            food.setName(food.getName().toUpperCase());
             return repo.save(food);
         }
-        return null;
     }
 
     public User_Food saveUserFood(User user, Food food, Date date, int calories, int servings){
         savefood(food);
         Food newfood = findByName(food.getName());
-        System.out.println(newfood.getId());
         User_Food userFood = new User_Food();
         userFood.setUser(user);
         userFood.setFood_id(newfood.getId());
@@ -71,12 +76,26 @@ public class AppService {
     public List<User_Food> ListUserFood(User user){
         Integer user_id = user.getId();
         List<User_Food> alluserfoods = userfoodrepo.findUserFoodById(user_id);
+        for (int i = 0; i < alluserfoods.size(); i++){
+            User_Food user_food = alluserfoods.get(i);
+            Food food = user_food.getFood();
+            food.setName(WordUtils.capitalizeFully(food.getName()));
+            user_food.setFood(food);
+            alluserfoods.set(i,user_food);
+        }
         return alluserfoods;
     }
 
     public List<User_Food> FindByDateId(User user,Date date){
         Integer user_id = user.getId();
         List<User_Food> alluserfoods = userfoodrepo.findUserFoodByDate(user_id,date);
+        for (int i = 0; i < alluserfoods.size(); i++){
+            User_Food user_food = alluserfoods.get(i);
+            Food food = user_food.getFood();
+            food.setName(WordUtils.capitalizeFully(food.getName()));
+            user_food.setFood(food);
+            alluserfoods.set(i,user_food);
+        }
         return alluserfoods;
     }
 

@@ -7,18 +7,20 @@
   <link rel="stylesheet" href="/css files/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
   <title>Add Exercises</title>
+  <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body>
 <header>
   <nav>
-    <p>FitLy</p>
+    <div class="navimage">
+      <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+    </div>
     <div class="navbar">
       <a th:href="@{/home}">Home</a>
       <a th:href="@{/viewfood}">Food</a>
-      <a class="currpage" href="#">Workout</a>
+      <a class="currpage" href="#">Workouts</a>
       <a th:href="@{/viewgoals}">Goals</a>
       <a th:href="@{/about}">About</a>
       <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">

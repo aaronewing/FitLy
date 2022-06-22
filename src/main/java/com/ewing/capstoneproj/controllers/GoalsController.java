@@ -44,11 +44,6 @@ public class GoalsController {
     public String changeComplete(@PathVariable(value = "goalid") Integer goal_id, Model model){
         Goals goals = goalsService.getGoalbyid(goal_id);
         goals.setCompleted(true);
-        User user = userService.getLoggedUser();
-        boolean complete = false;
-        String test = "Test Goal";
-        Date date = new Date();
-        goalsService.saveGoals(user,test,complete,date);
         goalsService.updateGoal(goals);
         return "redirect:/viewgoals";
     }
@@ -89,7 +84,6 @@ public class GoalsController {
             model.addAttribute("incomplete", incomplete);
             List<Goals> complete = goalsService.completeGoalsList(user.getId());
             model.addAttribute("complete", complete);
-            //comment
             model.addAttribute("datevalue", date);
             return "viewGoals";
         }

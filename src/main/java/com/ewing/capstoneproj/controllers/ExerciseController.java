@@ -17,89 +17,91 @@ import java.util.List;
 @Controller
 public class ExerciseController {
     @Autowired
-    private UserService service;
+    private UserService service; //service to handle user requests
     @Autowired
-    private AppService service1;
+    private AppService service1; //service to handle app/exercise requests
 
-    @GetMapping("/addexe")
+
+
+    @GetMapping("/addexe") //add exercise form
     public String viewAddexePage(Model model) {
         List<Exercises> exercises = service1.GetAllExercises();
         model.addAttribute("allexes", exercises);
         return "addExercises";
     }
 
-    @PostMapping("/process_exe")
+    @PostMapping("/process_exe") //process exercise page
     public String exeProcess(@RequestParam(value = "exename") String exename,
                               @RequestParam(value = "date") String date,
                               @RequestParam(value = "weight") Integer weight,
                               @RequestParam(value = "sets") Integer sets,
                               @RequestParam(value = "reps") Integer reps) throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date parseddate = format.parse(date);
-        User user = service.getLoggedUser();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //parses date
+        Date parseddate = format.parse(date); //puts into new date object
+        User user = service.getLoggedUser(); //gets logged in user
         Exercises exercises = new Exercises();
-        exercises.setName(exename);
+        exercises.setName(exename); //sets exercise name
         User_Exercises userexe = new User_Exercises();
-        service1.saveUserExercises(user, exercises, parseddate,weight, sets, reps);
+        service1.saveUserExercises(user, exercises, parseddate,weight, sets, reps); //saves user exercise
         return "redirect:addexe";
 
     }
     @GetMapping("/viewexe")
     public String viewexePage(Model model) {
-        User user = service.getLoggedUser();
-        Date date = new Date();
+        User user = service.getLoggedUser(); //get the logged user
+        Date date = new Date(); //new date object
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String datestring = format.format(date);
-        model.addAttribute("datevalue", datestring);
-        List<User_Exercises> userexercises = service1.FindByExeDateId(user,date);
-        model.addAttribute("userexes", userexercises);
+        String datestring = format.format(date); //sets current date to string, this will default the view exercise page to the current day
+        model.addAttribute("datevalue", datestring); //passes the value for the form
+        List<User_Exercises> userexercises = service1.FindByExeDateId(user,date); //gets the exercises by todays date
+        model.addAttribute("userexes", userexercises); //passes to html
         return "viewExercises";
     }
 
-    @PostMapping("/viewexe")
+    @PostMapping("/viewexe") //this viewexe post mapping is to filter exercises by date
     public String viewexePost(Model model, @RequestParam(value = "date2") String date) throws ParseException {
         User user = service.getLoggedUser();
-        if (date.equals("")) {
+        if (date.equals("")) { //if the user resets date, it prints all of the exercises for that user
             model.addAttribute("datevalue", date);
             List<User_Exercises> userexercises = service1.ListUserExercise(user);
             model.addAttribute("userexes", userexercises);
             return "viewExercises";
-        } else {
+        } else { //if the user selects a date, it prints the exercises for that user on that date
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Date parseddate = format.parse(date);
-            List<User_Exercises> userexercises = service1.FindByExeDateId(user, parseddate);
-            model.addAttribute("userexes", userexercises);
-            model.addAttribute("datevalue", date);
+            List<User_Exercises> userexercises = service1.FindByExeDateId(user, parseddate); //querys for exercises by that date and user
+            model.addAttribute("userexes", userexercises); //sends to html
+            model.addAttribute("datevalue", date); //sends datevalue to html
             return "viewExercises";
         }
     }
 
-    @GetMapping("/delexe/{userid}/{date}/{exeid}")
+    @GetMapping("/delexe/{userid}/{date}/{exeid}") //getmapping for entry deletion
     public String deleteEmployee(@PathVariable(value = "date") String date,
                                  @PathVariable(value = "exeid") Integer exe_id,
                                  @PathVariable(value = "userid") Integer user_id) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date parseddate = format.parse(date);
-        User user = service.findById(user_id);
-        Exercises exercises = service1.findexeByID(exe_id);
-        service1.exeDeleteByKeys(user,parseddate,exercises);
+        Date parseddate = format.parse(date); //parses date into readable date object
+        User user = service.findById(user_id); //gets user
+        Exercises exercises = service1.findexeByID(exe_id); //gets id
+        service1.exeDeleteByKeys(user,parseddate,exercises); //deletes by the 3 keys of the entry
         return "redirect:/viewexe";
     }
 
-    @GetMapping("/upexe/{userid}/{date}/{exeid}")
+    @GetMapping("/upexe/{userid}/{date}/{exeid}") //getmapping for entry update form
     public String upExe(@PathVariable(value = "date") String date,
                                  @PathVariable(value = "exeid") Integer exe_id,
                                  @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parseddate = format.parse(date);
-        User_Exercises update = service1.GetUserExeByKeys(user_id,parseddate,exe_id);
-        model.addAttribute("exe",update);
+        User_Exercises update = service1.GetUserExeByKeys(user_id,parseddate,exe_id); //gets entry by its keys
+        model.addAttribute("exe",update); //sends that entry to form for update
         return "updateExercises";
     }
 
-    @PostMapping("/exeupdate")
+    @PostMapping("/exeupdate") //this postmapping completes the update
     public String processupdate(@ModelAttribute("exe") User_Exercises update){
-        service1.updateUserExercises(update);
-        return "redirect:/viewexe";
+        service1.updateUserExercises(update); //updates the exercise
+        return "redirect:/viewexe"; //returns to the view exercises
     }
 }
