@@ -9,15 +9,17 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
-          rel="stylesheet">
-    <script type="text/javascript" src="/JS files/viewFood.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/JS%20files/sortReset.js"></script>
     <title>View Goals</title>
+    <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body>
 <header>
     <nav class="navclass">
-        <p>FitLy</p>
+        <div class="navimage">
+            <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+        </div>
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
             <a th:href="@{/viewfood}">Food</a>
@@ -31,13 +33,20 @@
         </div>
     </nav>
 </header>
-<h1>[[${#authentication.getPrincipal().getFirstName()}]]'s Goals</h1>
+<main class="contain1">
+    <div class="header-img1" style="background: url(/pictures/goalsheader.png) ;"></div>
+    <h1 class="headertext">Goals</h1>
+</main>
+<div class="card border-bottom-0">
+    <div class="card-header">
+        <h1>[[${#authentication.getPrincipal().getFirstName()}]]'s Goals</h1>
+    </div>
 <div class="sortform">
     <div class="sortcontain">
-        <form id="sortform1" th:action="@{viewgoals}" method="post">
-            <div class="sort"><input type="date" id="date2" th:name="incompletedate" th:value="${datevalue}"
+        <form id="sortform" th:action="@{viewgoals}" method="post">
+            <div class="sort"><input type="date" id="date1" th:name="incompletedate" th:value="${datevalue}"
                                      onchange="this.form.submit()">
-                <button type="button" onclick="exeResetButton()">Show All</button>
+                <button type="button" onclick="resetButton()">Show All</button>
             </div>
         </form>
     </div>
@@ -45,7 +54,7 @@
 
 <div class="tablecontainer">
     <h2>Current Goals</h2>
-    <table class="table table-bordered">
+    <table class="table table-border">
         <thead>
         <tr>
             <th scope="col">Goal</th>
@@ -65,11 +74,12 @@
         </tbody>
     </table>
     <h2>Completed Goals</h2>
-    <table class="table table-bordered" id="completedgoals">
+    <table class="table table-border" id="completedgoals">
         <thead>
         <tr>
             <th scope="col">Goal</th>
             <th scope="col">Date added</th>
+            <th scope="col">Date Completed</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -77,6 +87,7 @@
         <tr th:each="complete : ${complete}">
             <td th:text="${complete.text}"></td>
             <td th:text="${complete.date}"></td>
+            <td th:text="${complete.completedate}"></td>
             <td>
                 <a th:href="@{/deletegoal/{goalid}(goalid=${complete.goal_id})}" onclick="return confirm('Do you want to remove this goal from your completed list?')" class="btn btn-danger">Delete</a>
             </td>
@@ -88,6 +99,7 @@
             <button class="button1"> Add Goal</button>
         </a>
     </div>
+</div>
 </div>
 </body>
 </html>

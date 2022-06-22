@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="/css files/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
     <script type="text/javascript" src="/JS files/about.js"></script>
     <title>About</title>
+    <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body class="pastindex">
     <header>
         <nav>
-            <p class="title">FitLy</p>
+            <div class="navimage">
+                <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+            </div>
             <div class="navbar">
                 <a th:href="@{/home}">Home</a>
                 <a th:href="@{/viewfood}">Food</a>
@@ -30,7 +33,7 @@
     </header>
     <main class="contain">
         <div class="header-img" style="background: url(/pictures/excercise.png) ;"></div>
-        <h1>About Me and Contact</h1>
+        <h1 class="abouttext">About Me and Contact</h1>
     </main>
     <div class="main_container">
         <section id="section_1">
@@ -57,39 +60,7 @@
                     <th>Contact Email</th>
                     <td>ewingae@gmail.com</td>
                 </tr>
-                <tr>
-                    <th>Contact Number</th>
-                    <td>(123)-456-7891</td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td>4 Jersey St, Boston, MA 02215</td>
-                </tr>
             </table>
-        </div>
-        <div id = formcontain class="formcontain">
-            <h3>Contact Me!</h3>
-            <form id = contactform action="javascript:void(0);">
-                <div class="complete" id="complete">
-                    <p>Thank you, Aaron. I will respond to your email (ewingae@gmail.com) soon as possible!</p>
-                </div>
-                <div class="complete" id="alreadysent">
-                    <p>Sorry, you have already sent a message using this email or this email is invalid! Please wait for a response or refresh the page to send another one.</p>
-                </div>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" class="formcontent" name="firstname" placeholder="Your first name.." required>
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" class="formcontent" name="lastname" placeholder="Your last name.." required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" class="formcontent" name="email" placeholder="Your Email.." required>
-                <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                <div class="logbutn">
-                <input type="submit" class = "button" onclick="closeForm()" value="Submit">
-                </div>
-            </form>
-
         </div>
     </div>
 </body>

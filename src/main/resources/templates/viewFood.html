@@ -9,15 +9,17 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
-          rel="stylesheet">
-    <script type="text/javascript" src="/JS files/viewFood.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/JS%20files/sortReset.js"></script>
     <title>View Food</title>
+    <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body>
 <header>
     <nav class="navclass">
-        <p>FitLy</p>
+        <div class="navimage">
+            <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+        </div>
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
             <a class="currpage" href="#">Food</a>
@@ -31,7 +33,15 @@
         </div>
     </nav>
 </header>
+<main class="contain1">
+    <div class="header-img1" style="background: url(/pictures/foodheader.png) ;"></div>
+    <h1 class="headertext">Food</h1>
+</main>
 
+<div class="card border-bottom-0">
+    <div class="card-header">
+        <h1>[[${#authentication.getPrincipal().getFirstName()}]]'s Food</h1>
+    </div>
 <div class="sortform">
     <div class="sortcontain">
         <form id="sortform" th:action="@{viewfood}" method="post">
@@ -44,7 +54,7 @@
 </div>
 
 <div class="tablecontainer">
-    <table class="table table-bordered">
+    <table class="table table-border">
         <thead>
         <tr>
             <th scope="col">Date</th>
@@ -72,6 +82,7 @@
                 <button class="button1"> Add Food</button>
         </a>
     </div>
+</div>
 </div>
 </body>
 </html>

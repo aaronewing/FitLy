@@ -9,5 +9,5 @@ public class AboutController {
     @GetMapping("/about")
     public String viewaboutPage(Model model) {
         return "about";
-    }
+    } //view about page
 }

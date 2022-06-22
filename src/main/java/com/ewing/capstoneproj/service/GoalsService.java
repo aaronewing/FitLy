@@ -48,6 +48,8 @@ public class GoalsService {
     }
 
     public Goals updateGoal(Goals goal){
+        Date date = new Date();
+        goal.setCompletedate(date);
         return repo.save(goal);
     }
 
