@@ -1,0 +1,29 @@
+.logo{
+    position: relative;
+    width: 245px;
+    height: 188px;
+    right: 270px;
+    top: 180px;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+p{
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+.error{
+    padding-left: 45%;
+    padding-top: 6%;
+}
+
+a{
+    font-family: 'Roboto', sans-serif;
+}
+
+a:visited{
+    color: inherit;
+}

@@ -115,7 +115,13 @@ function checkLink(){
     if(window.location.href.indexOf("?error") != -1){
         document.getElementById("secinvalid").style.display= "block";
         openForm();
-    } else{
-        console.log("no error!")
+    }
+}
+
+function signUpError(){
+    if(window.location.href.indexOf("registerfail") != -1){
+        console.log("im in here");
+        document.getElementById("uperror").style.display= "block";
+        openFormUp();
     }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error 404 (Not Found)</title>
+    <link rel="icon" href="/pictures/favicon.png">
+    <link rel="stylesheet" href="/css files/404.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="error">
+    <img class="logo" src="/pictures/AltLogoIcon.png">
+    <h2>Hey, a 404 error!</h2>
+    <p>The url you requested wasn't found.</p>
+    <a th:href="@{/}">Return to home</a>
+</div>
+
+
+</body>
+</html>

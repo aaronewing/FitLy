@@ -3,8 +3,6 @@ package com.ewing.capstoneproj.controllers;
 
 import com.ewing.capstoneproj.models.Goals;
 import com.ewing.capstoneproj.models.User;
-import com.ewing.capstoneproj.models.User_Exercises;
-import com.ewing.capstoneproj.models.User_Food;
 import com.ewing.capstoneproj.service.GoalsService;
 import com.ewing.capstoneproj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,18 +37,28 @@ public class GoalsController {
         return "viewGoals";
     }
 
-    @GetMapping("/changegoal/{goalid}")
-    public String changeComplete(@PathVariable(value = "goalid") Integer goal_id, Model model){
+    @GetMapping("/changegoal/{goalid}/{userid}")
+    public String changeComplete(@PathVariable(value = "goalid") Integer goal_id,
+                                 @PathVariable(value = "userid") Integer user_id, Model model){
         Goals goals = goalsService.getGoalbyid(goal_id);
         goals.setCompleted(true);
-        goalsService.updateGoal(goals);
-        return "redirect:/viewgoals";
+        User checkLogged = userService.getLoggedUser();
+        if(checkLogged.getId() == user_id) {
+            goalsService.updateGoal(goals);
+            return "redirect:/viewgoals";
+        }
+        return "/error/400";
     }
 
-    @GetMapping("/deletegoal/{goalid}")
-    public String deleteGoal(@PathVariable(value = "goalid") Integer goal_id){
-        goalsService.deleteGoal(goal_id);
-        return "redirect:/viewgoals";
+    @GetMapping("/deletegoal/{goalid}/{userid}")
+    public String deleteGoal(@PathVariable(value = "goalid") Integer goal_id,
+                             @PathVariable(value = "userid")Integer user_id){
+        User checkLogged = userService.getLoggedUser();
+        if(checkLogged.getId() == user_id) {
+            goalsService.deleteGoal(goal_id);
+            return "redirect:/viewgoals";
+        }
+        return "/error/400";
     }
 
     @GetMapping("/addgoal")

@@ -95,6 +95,9 @@
             <div class="invalid" id="nolname">
                 <p>Please enter a last name!</p>
             </div>
+            <div class="invalid" id="uperror">
+                <p>User is already registered! Please try a new email.</p>
+            </div>
             <div class="logbutn">
                 <button type="button" onclick="checkEmailUp()">Submit</button>
             </div>
@@ -107,6 +110,7 @@
 </div>
     <script type="text/javascript">
         checkLink();
+        signUpError();
     </script>
 </body>
 </html>

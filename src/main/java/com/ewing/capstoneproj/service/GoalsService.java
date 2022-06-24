@@ -1,9 +1,7 @@
 package com.ewing.capstoneproj.service;
 
-import com.ewing.capstoneproj.models.Food;
 import com.ewing.capstoneproj.models.Goals;
 import com.ewing.capstoneproj.models.User;
-import com.ewing.capstoneproj.models.User_Food;
 import com.ewing.capstoneproj.repositories.GoalsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

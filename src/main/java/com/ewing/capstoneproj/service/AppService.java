@@ -29,7 +29,7 @@ public class AppService {
 
     public Date sortdate;
 
-    public Food findByID(Integer id){
+    public Food findByFoodId(Integer id){
         Food food = repo.getReferenceById(id);
         return food;
     }
@@ -41,20 +41,16 @@ public class AppService {
 
     public List<Food> GetAllFoods(){
         List<Food> allfoods = repo.findAll();
-        for (int i = 0; i < allfoods.size(); i++){
-            Food food = allfoods.get(i);
-            food.setName(WordUtils.capitalizeFully(food.getName()));
-            allfoods.set(i,food);
-        }
         return allfoods;
     }
 
     public Food savefood(Food food){
-        Food existing = findByName(food.getName().toUpperCase());
+        Food existing = findByName(food.getName());
         if (existing != null){
             return null;
         } else{
-            food.setName(food.getName().toUpperCase());
+            String foodname = WordUtils.capitalizeFully(food.getName());
+            food.setName(foodname);
             return repo.save(food);
         }
     }
@@ -76,26 +72,12 @@ public class AppService {
     public List<User_Food> ListUserFood(User user){
         Integer user_id = user.getId();
         List<User_Food> alluserfoods = userfoodrepo.findUserFoodById(user_id);
-        for (int i = 0; i < alluserfoods.size(); i++){
-            User_Food user_food = alluserfoods.get(i);
-            Food food = user_food.getFood();
-            food.setName(WordUtils.capitalizeFully(food.getName()));
-            user_food.setFood(food);
-            alluserfoods.set(i,user_food);
-        }
         return alluserfoods;
     }
 
     public List<User_Food> FindByDateId(User user,Date date){
         Integer user_id = user.getId();
         List<User_Food> alluserfoods = userfoodrepo.findUserFoodByDate(user_id,date);
-        for (int i = 0; i < alluserfoods.size(); i++){
-            User_Food user_food = alluserfoods.get(i);
-            Food food = user_food.getFood();
-            food.setName(WordUtils.capitalizeFully(food.getName()));
-            user_food.setFood(food);
-            alluserfoods.set(i,user_food);
-        }
         return alluserfoods;
     }
 
@@ -122,11 +104,12 @@ public class AppService {
     public Exercises saveExercise(Exercises exercise){
         Exercises existing = findExeByName(exercise.getName());
         if (existing != null){
-            System.out.println("Exercise already exists!");
+            return null;
         } else{
+            String exename = WordUtils.capitalizeFully(exercise.getName());
+            exercise.setName(exename);
             return exerepo.save(exercise);
         }
-        return null;
     }
 
     public User_Exercises saveUserExercises(User user, Exercises exercises, Date date, Integer weight, int sets, int reps){
@@ -162,9 +145,15 @@ public class AppService {
         userexerepo.deleteUserExerciseByKeys(user_id,date,exercises_id);
     }
 
-    public User_Exercises GetUserExeByKeys(Integer user_id, Date date, Integer exercise_id){
-        User_Exercises exercises = userexerepo.getUserExerciseByKeys(user_id,date,exercise_id);
-        return exercises;
+    public User_Exercises getUserExeByKeys(User user, Date date, Exercises findid){
+        if (findid.getId() == null){
+            Exercises exercise_id = exerepo.findExerciseByName(findid.getName());
+            User_Exercises exercises = userexerepo.getUserExerciseByKeys(user.getId(),date,exercise_id.getId());
+            return exercises;
+        }else{
+            User_Exercises exercises = userexerepo.getUserExerciseByKeys(user.getId(),date,findid.getId());
+            return exercises;
+        }
     }
 
     public User_Exercises updateUserExercises(User_Exercises exercises){
@@ -175,13 +164,19 @@ public class AppService {
         return userexerepo.save(exercises);
     }
 
-    public User_Food GetUserFoodByKeys(Integer user_id, Date date, Integer foodid){
-        User_Food userfood = userfoodrepo.getUserFoodByKeys(user_id,date,foodid);
-        return userfood;
+    public User_Food getUserFoodByKeys(User user, Date date, Food food){
+        if (food.getId()==null){
+            Food newfood = repo.findFoodByName(food.getName());
+            User_Food userfood = userfoodrepo.getUserFoodByKeys(user.getId(),date,newfood.getId());
+            return userfood;
+        }else{
+            User_Food userfood = userfoodrepo.getUserFoodByKeys(user.getId(),date, food.getId());
+            return userfood;
+        }
     }
 
     public User_Food updateUserFood(User_Food userfood){
-        Food food = findByID(userfood.getFood_id());
+        Food food = findByFoodId(userfood.getFood_id());
         User user = userserv.findById(userfood.getUser_id());
         userfood.setFood(food);
         userfood.setUser(user);

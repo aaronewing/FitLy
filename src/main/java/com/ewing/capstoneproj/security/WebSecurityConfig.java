@@ -39,7 +39,11 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home", "/about", "/addfood", "/viewfood","/viewexe","/addexe").authenticated()
+                .antMatchers("/home", "/about", "/addfood", "/viewfood","/viewexe","/addexe","/viewgoals","/addgoal","/exefail", "foodfail",
+                        "/upexe/{userid}/{date}/{exeid}", "/upfood/{userid}/{date}/{exeid}",
+                        "/delexe/{userid}/{date}/{exeid}","/deletefood/{userid}/{date}/{exeid}",
+                        "/changegoal/{goalid}/{userid}",
+                        "/deletegoal/{goalid}/{userid}").authenticated()
                 .anyRequest().permitAll()
                 .and()
 

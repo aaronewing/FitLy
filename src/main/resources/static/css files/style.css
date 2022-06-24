@@ -239,7 +239,7 @@ main .headertext{
 
 main .abouttext{
     position: absolute;
-    left: 33%;
+    left: 43%;
     top: 20%;
 
 }
@@ -416,6 +416,19 @@ main .workouttext{
     position: absolute;
     left: 43%;
     top: 20%;
+}
+
+#updatebutton{
+    margin-top: 15px;
+}
+
+#goalbutton{
+    margin-bottom: 15px;
+}
+.invalid{
+    display: none;
+    color: red;
+    transition-duration: 1s;
 }
 
 

@@ -3,7 +3,6 @@ package com.ewing.capstoneproj.repositories;
 
 import com.ewing.capstoneproj.UserExerciseID;
 import com.ewing.capstoneproj.models.User_Exercises;
-import com.ewing.capstoneproj.models.User_Food;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

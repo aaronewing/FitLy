@@ -1,7 +1,6 @@
 package com.ewing.capstoneproj.security;
 
 import com.ewing.capstoneproj.models.User;
-import com.ewing.capstoneproj.repositories.UserRepository;
 import com.ewing.capstoneproj.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

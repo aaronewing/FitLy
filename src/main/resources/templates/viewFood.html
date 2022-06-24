@@ -47,7 +47,7 @@
         <form id="sortform" th:action="@{viewfood}" method="post">
             <div class="sort"><input type="date" id="date1" th:name="date1" th:value="${datevalue}"
                                      onchange="this.form.submit()">
-                <button type="button" onclick="resetButton()">Reset Date</button>
+                <button class="btn btn-primary" type="button" onclick="resetButton()">Show All</button>
             </div>
         </form>
     </div>

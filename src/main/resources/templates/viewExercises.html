@@ -46,7 +46,7 @@
         <form id="sortform" th:action="@{viewexe}" method="post">
             <div class="sort"><input type="date" id="date1" th:name="date2" th:value="${datevalue}"
                                      onchange="this.form.submit()">
-                <button type="button" onclick="resetButton()">Show All</button>
+                <button class="btn btn-primary" type="button" onclick="resetButton()">Show All</button>
             </div>
         </form>
     </div>

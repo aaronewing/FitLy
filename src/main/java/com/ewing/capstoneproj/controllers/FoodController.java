@@ -1,9 +1,10 @@
 package com.ewing.capstoneproj.controllers;
 
 
+import com.ewing.capstoneproj.exceptions.ExistingFoodException;
+import com.ewing.capstoneproj.exceptions.ExistingWorkoutException;
 import com.ewing.capstoneproj.models.Food;
 import com.ewing.capstoneproj.models.User;
-import com.ewing.capstoneproj.models.User_Exercises;
 import com.ewing.capstoneproj.models.User_Food;
 import com.ewing.capstoneproj.service.AppService;
 import com.ewing.capstoneproj.service.UserService;
@@ -24,7 +25,7 @@ public class FoodController {
     @Autowired
     private AppService service1;
 
-    @GetMapping("/addfood")
+    @GetMapping(value = {"/addfood","/foodfail"})
     public String viewAddfoodPage(Model model) {
         List<Food> foods = service1.GetAllFoods();
         model.addAttribute("allfoods", foods);
@@ -35,16 +36,16 @@ public class FoodController {
     @PostMapping("/process_food")
     public String foodProcess(@RequestParam(value = "foodname") String foodname,
                               @RequestParam(value = "date") String date,
-                              @RequestParam(value = "calories") Integer calories,
-                              @RequestParam(value = "servings") Integer servings) throws ParseException {
+                              @RequestParam(value = "calories",defaultValue = "0") Integer calories,
+                              @RequestParam(value = "servings",defaultValue = "0") Integer servings) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parseddate = format.parse(date);
         User user = service.getLoggedUser();
         Food food = new Food();
         food.setName(foodname);
-        User_Food food2 = new User_Food();
+        if (service1.getUserFoodByKeys(user,parseddate,food) != null) throw new ExistingFoodException();
         service1.saveUserFood(user, food, parseddate, calories, servings);
-        return "redirect:addfood";
+        return "redirect:/viewfood";
 
     }
 
@@ -80,22 +81,32 @@ public class FoodController {
     public String deleteEmployee(@PathVariable(value = "date") String date,
                                  @PathVariable(value = "foodid") Integer food_id,
                                  @PathVariable(value = "userid") Integer user_id) throws ParseException {
+        User checkLogged = service.getLoggedUser();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parseddate = format.parse(date);
         User user = service.findById(user_id);
-        Food food = service1.findByID(food_id);
-        service1.DeleteByKeys(user,parseddate,food);
-        return "redirect:/viewfood";
+        Food food = service1.findByFoodId(food_id);
+        if (checkLogged.getId() == user_id) {
+            service1.DeleteByKeys(user, parseddate, food);
+            return "redirect:/viewfood";
+        }
+        return "/error/400";
     }
     @GetMapping("/upfood/{userid}/{date}/{foodid}")
     public String upFoodform(@PathVariable(value = "date") String date,
                              @PathVariable(value = "foodid") Integer foodid,
                              @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        User checkLogged = service.getLoggedUser();
         Date parseddate = format.parse(date);
-        User_Food update = service1.GetUserFoodByKeys(user_id,parseddate,foodid);
-        model.addAttribute("food",update);
-        return "UpdateFood";
+        User user = service.findById(user_id);
+        Food food = service1.findByFoodId(foodid);
+        if (checkLogged.getId() == user_id) {
+            User_Food update = service1.getUserFoodByKeys(user, parseddate, food);
+            model.addAttribute("food", update);
+            return "UpdateFood";
+        }
+        return "/error/400";
     }
 
     @PostMapping("/foodupdate")

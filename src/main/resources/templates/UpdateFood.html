@@ -34,37 +34,44 @@
     </nav>
 </header>
 
+<main class="contain1">
+    <div class="header-img1" style="background: url(/pictures/foodheader.png) ;"></div>
+    <h1 class="headertext">Food</h1>
+</main>
+
+<div class="card">
+    <div class="card-header">
+        <h1>Update Food</h1>
+    </div>
 <div class="Form">
     <div class="container" id="updateform">
-        <div class="text">Update Food</div>
-        <div class="info">
-            <span th:text="${food.date}"></span>
-            <span th:text="${food.Food.name}"></span>
-        </div>
         <form id ="upform" th:action="@{/foodupdate}" method="post" th:object="${food}">
 
-            <div class="data" style="display: none">
-                <label>User ID</label>
-                <input type="date" id="userfooddate" th:value="${food.date}" th:field="*{date}">
+            <div class="mb-3">
+                <label class="form-label">Food name</label>
+                <input class="form-control" type="text" id="userfoodname" th:value="${food.Food.name}" th:field="*{Food.name}" readonly>
             </div>
-
-            <div class="data" style="display: none">
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input class="form-control" type="date" id="userfooddate" th:value="${food.date}" th:field="*{date}" readonly>
+            </div>
+            <div class="mb-3" style="display: none">
                 <label>User ID</label>
                 <input type="number" id="user_id" th:value="${food.user_id}" th:field="*{user_id}">
             </div>
 
-            <div class="data" style="display: none">
+            <div class="mb-3" style="display: none">
                 <label>Food id</label>
                 <input type="number" id="food_id" th:value="${food.food_id}" th:field="*{food_id}">
             </div>
 
-            <div class="data">
-                <label>Calories Per Serving</label>
-                <input type="number" id="calories" th:field="*{calories}">
+            <div class="mb-3">
+                <label class="form-label">Calories Per Serving</label>
+                <input class="form-control" type="number" id="calories" th:field="*{calories}">
             </div>
-            <div class="data">
-                <label>Servings</label>
-                <input type="number" id="servings" th:field="*{servings}">
+            <div class="mb-3">
+                <label class="form-label">Servings</label>
+                <input class="form-control" type="number" id="servings" th:field="*{servings}">
             </div>
             <div class="addbutton">
                 <button type="submit" class="button1"> Submit</button>
@@ -72,10 +79,11 @@
         </form>
         <div class="addbutton">
             <a th:href="@{/viewfood}">
-                <button class="button1"> Cancel</button>
+                <button id="updatebutton" class="button1"> Cancel</button>
             </a>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
