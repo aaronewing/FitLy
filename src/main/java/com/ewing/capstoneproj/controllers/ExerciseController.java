@@ -90,7 +90,7 @@ public class ExerciseController {
     public String upExe(@PathVariable(value = "date") String date,
                                  @PathVariable(value = "exeid") Integer exe_id,
                                  @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
-        User checkUser = service.getLoggedUser();
+        User checkUser = service.getLoggedUser(); //getting logged in user to check if this user is allowed to update entry
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         User user = service.findById(user_id);
         Exercises exercises = service1.findexeByID(exe_id);
