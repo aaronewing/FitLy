@@ -19,11 +19,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public User findByEmail(String email){ //finds a user by email
+    public User findByEmail(String email) { //finds a user by email
         return repo.findByEmail(email);
     }
 
-    public User save(User user){ //saves a user
+    public User save(User user) { //saves a user
         User user1 = new User();
         user1.setFirstname(user.getFirstname());
         user1.setLastname(user.getLastname());
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
         return repo.save(user1); //saves the user
     }
 
-    public User getLoggedUser(){ //gets the logged in user
+    public User getLoggedUser() { //gets the logged in user
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = findByEmail(currentPrincipalName);
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(Integer id) { //finds a user by id
-        User user=repo.getReferenceById(id);
+        User user = repo.getReferenceById(id);
         return user;
     }
 
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException { //leftover from custom user details
         User user = findByEmail(email);
-        if (user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
         return new CustomUserDetails(user);

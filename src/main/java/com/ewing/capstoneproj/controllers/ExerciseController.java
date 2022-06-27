@@ -22,8 +22,7 @@ public class ExerciseController {
     private AppService service1; //service to handle app/exercise requests
 
 
-
-    @GetMapping(value = {"/addexe","/exefail"}) //add exercise form
+    @GetMapping(value = {"/addexe", "/exefail"}) //add exercise form
     public String viewAddexePage(Model model) {
         List<Exercises> exercises = service1.GetAllExercises();
         model.addAttribute("allexes", exercises);
@@ -32,20 +31,21 @@ public class ExerciseController {
 
     @PostMapping("/process_exe") //process exercise page
     public String exeProcess(@RequestParam(value = "exename") String exename,
-                              @RequestParam(value = "date") String date,
-                              @RequestParam(value = "weight" ,defaultValue = "0") Integer weight,
-                              @RequestParam(value = "sets", defaultValue = "0") Integer sets,
-                              @RequestParam(value = "reps",defaultValue = "0") Integer reps) throws ParseException {
+                             @RequestParam(value = "date") String date,
+                             @RequestParam(value = "weight", defaultValue = "0") Integer weight,
+                             @RequestParam(value = "sets", defaultValue = "0") Integer sets,
+                             @RequestParam(value = "reps", defaultValue = "0") Integer reps) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //parses date
         Date parseddate = format.parse(date); //puts into new date object
         User user = service.getLoggedUser(); //gets logged in user
         Exercises exercises = new Exercises();
         exercises.setName(exename); //sets exercise name
-        if (service1.getUserExeByKeys(user,parseddate,exercises) != null) throw new ExistingWorkoutException();
-        service1.saveUserExercises(user, exercises, parseddate,weight, sets, reps); //saves user exercise
+        if (service1.getUserExeByKeys(user, parseddate, exercises) != null) throw new ExistingWorkoutException();
+        service1.saveUserExercises(user, exercises, parseddate, weight, sets, reps); //saves user exercise
         return "redirect:/viewexe";
 
     }
+
     @GetMapping("/viewexe")
     public String viewexePage(Model model) {
         User user = service.getLoggedUser(); //get the logged user
@@ -82,14 +82,14 @@ public class ExerciseController {
         Date parseddate = format.parse(date); //parses date into readable date object
         User user = service.findById(user_id); //gets user
         Exercises exercises = service1.findexeByID(exe_id); //gets id
-        service1.exeDeleteByKeys(user,parseddate,exercises); //deletes by the 3 keys of the entry
+        service1.exeDeleteByKeys(user, parseddate, exercises); //deletes by the 3 keys of the entry
         return "redirect:/viewexe";
     }
 
     @GetMapping("/upexe/{userid}/{date}/{exeid}") //getmapping for entry update form
     public String upExe(@PathVariable(value = "date") String date,
-                                 @PathVariable(value = "exeid") Integer exe_id,
-                                 @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
+                        @PathVariable(value = "exeid") Integer exe_id,
+                        @PathVariable(value = "userid") Integer user_id, Model model) throws ParseException {
         User checkUser = service.getLoggedUser(); //getting logged in user to check if this user is allowed to update entry
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         User user = service.findById(user_id);
@@ -104,7 +104,7 @@ public class ExerciseController {
     }
 
     @PostMapping("/exeupdate") //this postmapping completes the update
-    public String processupdate(@ModelAttribute("exe") User_Exercises update){
+    public String processupdate(@ModelAttribute("exe") User_Exercises update) {
         service1.updateUserExercises(update); //updates the exercise
         return "redirect:/viewexe"; //returns to the view exercises
     }

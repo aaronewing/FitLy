@@ -16,20 +16,20 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig{
+public class WebSecurityConfig {
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         return new CustomUserDetailsService();
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -39,9 +39,9 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home", "/about", "/addfood", "/viewfood","/viewexe","/addexe","/viewgoals","/addgoal","/exefail", "foodfail",
+                .antMatchers("/home", "/about", "/addfood", "/viewfood", "/viewexe", "/addexe", "/viewgoals", "/addgoal", "/exefail", "foodfail",
                         "/upexe/{userid}/{date}/{exeid}", "/upfood/{userid}/{date}/{exeid}",
-                        "/delexe/{userid}/{date}/{exeid}","/deletefood/{userid}/{date}/{exeid}",
+                        "/delexe/{userid}/{date}/{exeid}", "/deletefood/{userid}/{date}/{exeid}",
                         "/changegoal/{goalid}/{userid}",
                         "/deletegoal/{goalid}/{userid}",
                         "/change/{goalid}/{userid}").authenticated() //have to be logged-in to access these sites

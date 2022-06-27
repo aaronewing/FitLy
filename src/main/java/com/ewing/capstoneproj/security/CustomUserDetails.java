@@ -9,9 +9,10 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
     private User user;
 
-    public CustomUserDetails(User user){
+    public CustomUserDetails(User user) {
         this.user = user;
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -27,9 +28,10 @@ public class CustomUserDetails implements UserDetails {
         return user.getEmail();
     }
 
-    public String getFirstName(){ //gets the first name
+    public String getFirstName() { //gets the first name
         String firstName = user.getFirstname();
-        return firstName;}
+        return firstName;
+    }
 
     @Override
     public boolean isAccountNonExpired() {

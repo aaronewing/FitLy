@@ -18,7 +18,7 @@ public class HomeController {
 
 
     @GetMapping("/home") //logged in home page
-    public String viewPage(Model model){
+    public String viewPage(Model model) {
         return "home";
     }
 }

@@ -30,26 +30,26 @@ public class User_Exercises implements Serializable {
     protected Integer exercise_id;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id",insertable = false,updatable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     protected User user;
 
 
     @ManyToOne
-    @JoinColumn(name = "exercise_id",insertable = false,updatable = false)
+    @JoinColumn(name = "exercise_id", insertable = false, updatable = false)
     private Exercises exercises;
 
     @Column(name = "weight")
     private Integer weight;
 
-    @Column (name = "sets")
+    @Column(name = "sets")
     private int sets;
 
-    @Column (name = "reps")
+    @Column(name = "reps")
     private int reps;
 
     @Id
     @Temporal(TemporalType.DATE)
-    @Column (name = "date",insertable = false,updatable = false)
+    @Column(name = "date", insertable = false, updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 }

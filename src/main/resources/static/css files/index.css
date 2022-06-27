@@ -1,40 +1,40 @@
-.apptitle{
+.apptitle {
     font-family: 'Work Sans', sans-serif;
     font-size: 100px;
 }
 
 
-
-.content{
+.content {
     display: flex;
     flex-direction: column;
     position: fixed;
     padding-left: 13%;
     padding-top: 6%;
     margin-left: 34%;
-    
+
 }
 
 
-.space{
+.space {
     display: inline-block;
     height: auto;
     width: 10px;
 }
-.content .buttons{
+
+.content .buttons {
     justify-content: space-between;
     width: 100%;
     margin-left: -25%;
 }
 
-.signin, .signup{
+.signin, .signup {
     background-color: #5465FF;
     border: none;
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-size: 50px;
-    border:0.1em solid #5465FF;
+    border: 0.1em solid #5465FF;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     padding: 15px 20px;
@@ -43,13 +43,13 @@
 }
 
 .signin:hover, .signup:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     color: black;
 }
 
 
-#myVideo{
+#myVideo {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -58,13 +58,13 @@
     opacity: 0.7;
 }
 
-.Form{
+.Form {
     position: fixed;
     font-family: 'Work Sans', sans-serif;
     font-weight: 100;
 }
 
-#myForm{
+#myForm {
     display: none;
     position: absolute;
     top: 50%;
@@ -74,10 +74,10 @@
     background-color: #fff;
     width: 410px;
     padding: 30px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
-#myFormsignup{
+#myFormsignup {
     display: none;
     position: absolute;
     top: 50%;
@@ -87,26 +87,26 @@
     background-color: #fff;
     width: 410px;
     padding: 30px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 
 }
 
-.container .text{
+.container .text {
     font-size: 35px;
     text-align: center;
 }
 
-.container form{
+.container form {
     margin-top: -20px;
 }
 
-.container form .data{
+.container form .data {
     height: 45px;
     width: 100%;
     margin: 40px 0;
 }
 
-form .data input{
+form .data input {
     height: 100%;
     width: 100%;
     padding-left: 5px;
@@ -115,7 +115,7 @@ form .data input{
     font-family: 'Work Sans', sans-serif;
 }
 
-form .data select{
+form .data select {
     height: 100%;
     width: 100%;
     padding-left: 5px;
@@ -124,11 +124,11 @@ form .data select{
     font-family: 'Work Sans', sans-serif;
 }
 
-form .data label{
+form .data label {
     font-size: 18px;
 }
 
-form .logbutn{
+form .logbutn {
     margin: 20px 0;
     height: 60px;
     width: 100%;
@@ -139,7 +139,7 @@ form .logbutn{
     cursor: pointer;
 }
 
-form .logbutn button{
+form .logbutn button {
     height: 100%;
     width: 100%;
     background-color: #5465FF;
@@ -148,27 +148,27 @@ form .logbutn button{
     border-radius: 8px;
     cursor: pointer;
     font-size: 35px;
-    border:0.1em solid #5465FF;
+    border: 0.1em solid #5465FF;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 0.4s;
     display: inline-block;
 }
 
-form .logbutn button:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+form .logbutn button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     color: black;
-    
+
 }
 
-.invalid{
+.invalid {
     display: none;
     color: red;
     transition-duration: 1s;
 }
 
-.indeximg .logo{
+.indeximg .logo {
     position: relative;
     width: 731px;
     height: 202px;

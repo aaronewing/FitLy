@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,60 +8,63 @@
     <link rel="stylesheet" href="/css files/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="/JS files/about.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
+          rel="stylesheet">
     <title>About</title>
     <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body class="pastindex">
-    <header>
-        <nav>
-            <div class="navimage">
-                <img src="/pictures/WLogoIcon.png" style="width: 60px;height: 46px;">
-            </div>
-            <div class="navbar">
-                <a th:href="@{/home}">Home</a>
-                <a th:href="@{/viewfood}">Food</a>
-                <a th:href="@{/viewexe}">Workouts</a>
-                <a th:href="@{/viewgoals}">Goals</a>
-                <a class="currpage" href="#">About</a>
-                <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
-                    <input type="submit" value="Logout">
-                </form>
-                <a href="javascript:document.logoutbutt.submit()">Logout</a>
-            </div>
-        </nav>
-    </header>
-    <main class="contain">
-        <div class="header-img" style="background: url(/pictures/excercise.png) ;"></div>
-        <h1 class="abouttext">About Us</h1>
-    </main>
-    <div class="main_container">
-        <section id="section_1">
-            <div id="about">
-                <img src="/pictures/facepic.png" id="facepic" alt="Aaron Ewing">
-                <h1>Aaron Ewing</h1>
-                <h4>Creator and Developer</h4>
-            </div>
-        </section>
-        <div class="bio">
-            <p> Aaron is a developer from the Greater Boston area. This project was created for the TekSystems training cohort. The idea for this project
-                came from the use of multiple fitness apps to track different things like food, exercises, goals, steps etc. and a want to create a basic
-                easy to use app that would allow the tracking of food, exercises and goals in one easy place! Below, you can find the email used to contact me.
-            </p>
+<header>
+    <nav>
+        <div class="navimage">
+            <img src="/pictures/WLogoIcon.png" style="width: 60px;height: 46px;">
         </div>
-        <div class="tablecontain">
-            <table class="contact">
-                <tr class="tr">
-                    <th>Contact Name</th>
-                    <td>Aaron Ewing</td>
-                </tr>
-                <tr>
-                    <th>Contact Email</th>
-                    <td>ewingae@gmail.com</td>
-                </tr>
-            </table>
+        <div class="navbar">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/viewfood}">Food</a>
+            <a th:href="@{/viewexe}">Workouts</a>
+            <a th:href="@{/viewgoals}">Goals</a>
+            <a class="currpage" href="#">About</a>
+            <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
+                <input type="submit" value="Logout">
+            </form>
+            <a href="javascript:document.logoutbutt.submit()">Logout</a>
         </div>
+    </nav>
+</header>
+<main class="contain">
+    <div class="header-img" style="background: url(/pictures/excercise.png) ;"></div>
+    <h1 class="abouttext">About Us</h1>
+</main>
+<div class="main_container">
+    <section id="section_1">
+        <div id="about">
+            <img src="/pictures/facepic.png" id="facepic" alt="Aaron Ewing">
+            <h1>Aaron Ewing</h1>
+            <h4>Creator and Developer</h4>
+        </div>
+    </section>
+    <div class="bio">
+        <p> Aaron is a developer from the Greater Boston area. This project was created for the TekSystems training
+            cohort. The idea for this project
+            came from the use of multiple fitness apps to track different things like food, exercises, goals, steps etc.
+            and a want to create a basic
+            easy to use app that would allow the tracking of food, exercises and goals in one easy place! Below, you can
+            find the email used to contact me.
+        </p>
     </div>
+    <div class="tablecontain">
+        <table class="contact">
+            <tr class="tr">
+                <th>Contact Name</th>
+                <td>Aaron Ewing</td>
+            </tr>
+            <tr>
+                <th>Contact Email</th>
+                <td>ewingae@gmail.com</td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

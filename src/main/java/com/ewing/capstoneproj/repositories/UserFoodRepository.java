@@ -13,17 +13,22 @@ import java.util.List;
 
 @Repository
 public interface UserFoodRepository extends JpaRepository<User_Food, UserFoodID> {
-    @Query("SELECT u from User_Food u WHERE u.user_id = ?1") //selects user foods by user
+    @Query("SELECT u from User_Food u WHERE u.user_id = ?1")
+        //selects user foods by user
     List<User_Food> findUserFoodById(Integer user_id);
 
-    @Query("select u from User_Food u where u.user_id = ?1 and u.date = ?2") //selects user foods by user and date
+    @Query("select u from User_Food u where u.user_id = ?1 and u.date = ?2")
+        //selects user foods by user and date
     List<User_Food> findUserFoodByDate(Integer user_id, Date date);
+
     @Transactional
     @Modifying
-    @Query("DELETE FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3 ") //delete user foods by user date and food id
+    @Query("DELETE FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3 ")
+        //delete user foods by user date and food id
     void deleteUserFoodByKeys(Integer user_id, Date date, Integer food_id);
 
-    @Query("SELECT u FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3") //gets user food by user date and food id
+    @Query("SELECT u FROM User_Food u where u.user_id = ?1 and u.date = ?2 and u.food_id = ?3")
+        //gets user food by user date and food id
     User_Food getUserFoodByKeys(Integer user_id, Date date, Integer exercise_id);
 
 }

@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-nav{
+nav {
     background-color: #788bff;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@ nav{
     box-shadow: 0 0 15px 0 black;
 }
 
-.navclass{
+.navclass {
     background-color: #788bff;
     justify-content: space-between;
     color: white;
@@ -23,38 +23,38 @@ nav{
     box-shadow: 0 0 15px 0 black;
 }
 
-.navclass img{
+.navclass img {
     margin-top: 10px;
 }
 
-nav div{
+nav div {
     min-width: 30%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
 
-.navclass div{
+.navclass div {
     min-width: 30%;
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
 
-nav p{
+nav p {
     font-size: 35px;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
 
 }
 
-.navclass p{
+.navclass p {
     font-size: 35px;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
     margin-top: 20px;
 }
 
-nav a{
+nav a {
     color: white;
     font-size: 20px;
     text-decoration: none;
@@ -62,7 +62,8 @@ nav a{
     font-weight: normal;
 
 }
-.navclass a{
+
+.navclass a {
     color: white;
     font-size: 20px;
     text-decoration: none;
@@ -71,32 +72,33 @@ nav a{
     padding-bottom: 18px;
 }
 
-nav a.currpage{
+nav a.currpage {
     color: #9BB1FF;
     text-decoration: none;
 }
-nav a:hover{
+
+nav a:hover {
     transition: all .5s ease;
     color: #BFD7FF;
 }
 
-.container{
+.container {
     width: 80%;
     margin: 0 auto;
     border-radius: 1vw;
     padding: 1vw;
 }
 
-.sortcontain{
+.sortcontain {
     padding-top: 2%;
 }
 
-#date1{
+#date1 {
     color: black;
 }
 
 
-.divider{
+.divider {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -105,7 +107,7 @@ nav a:hover{
 }
 
 
-.navlink{
+.navlink {
     display: flex;
     flex-flow: column nowrap;
     width: 20%;
@@ -119,38 +121,38 @@ nav a:hover{
 
 }
 
-.navlink .alltext{
+.navlink .alltext {
     margin: 10px;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
 
 }
 
-.navlink .alltext p{
+.navlink .alltext p {
     padding-top: 20px;
 
 }
 
-.navlink:hover{
-    transition: all.5s ease;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.navlink:hover {
+    transition: all .5s ease;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.image{
+.image {
     min-height: 170px;
     min-width: 100%;
     background-size: cover;
     background-position: center;
- }
+}
 
- .main_container{
+.main_container {
     background-color: white;
     width: 50vw;
     margin: auto;
     margin-top: 5vh;
 }
 
-.bio{
+.bio {
     display: flex;
     margin: auto;
     width: 90%;
@@ -163,14 +165,14 @@ nav a:hover{
 }
 
 
-#section_1{
+#section_1 {
     display: flex;
     background-color: white;
     justify-content: flex-start;
 }
 
-#facepic{
-    display:flex;
+#facepic {
+    display: flex;
     width: 200px;
     height: 200px;
     margin-top: 20px;
@@ -179,7 +181,7 @@ nav a:hover{
     border: 2px solid #555;
 }
 
-#about h1{
+#about h1 {
     font-family: 'Roboto', sans-serif;
     color: black;
     font-weight: normal;
@@ -190,11 +192,11 @@ nav a:hover{
 
 }
 
-.navimage{
+.navimage {
     padding-right: 470px;
 }
 
-#about h4{
+#about h4 {
     color: #788BFF;
     font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
@@ -204,7 +206,7 @@ nav a:hover{
     bottom: 210px;
 }
 
-.contain{
+.contain {
     font-size: 35px;
     font-family: 'Exo 2', sans-serif;
     font-weight: normal;
@@ -218,6 +220,7 @@ nav a:hover{
     background-position: center;
     opacity: 0.6;
 }
+
 .header-img1 {
     width: 100%;
     height: 300px;
@@ -227,7 +230,7 @@ nav a:hover{
 }
 
 
-main .headertext{
+main .headertext {
     font-size: 70px;
     font-family: 'Exo 2', sans-serif;
     font-weight: 700;
@@ -238,20 +241,20 @@ main .headertext{
 
 }
 
-main .abouttext{
+main .abouttext {
     position: absolute;
     left: 43%;
     top: 20%;
 
 }
 
-.contact table{
+.contact table {
     position: relative;
     border-collapse: collapse;
     width: 100%;
 }
 
-.contact td,th{
+.contact td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -261,7 +264,7 @@ main .abouttext{
     background-color: #dddddd;
 }
 
-.tablecontain{
+.tablecontain {
     font-family: 'Work Sans', sans-serif;
     display: flex;
     position: relative;
@@ -269,7 +272,7 @@ main .abouttext{
     left: 0%;
 }
 
-.formcontain{
+.formcontain {
     font-family: 'Work Sans', sans-serif;
     display: flex;
     box-sizing: border-box;
@@ -294,23 +297,23 @@ input[type=text], input[type = email], textarea {
     resize: vertical;
 }
 
-.formcontain h3{
+.formcontain h3 {
     padding-top: 10px;
 }
 
-#contactform{
+#contactform {
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
 
 }
 
-.formcontain h3{
+.formcontain h3 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
-.complete{
+.complete {
     display: none;
     font-family: 'Work Sans', sans-serif;
     font-size: 25px;
@@ -318,12 +321,12 @@ input[type=text], input[type = email], textarea {
     padding-bottom: 30px;
 }
 
-#alreadysent{
+#alreadysent {
     display: none;
     left: 24%;
 }
 
-form .logbutn{
+form .logbutn {
     margin: 20px 0;
     height: 60px;
     width: 60%;
@@ -335,7 +338,7 @@ form .logbutn{
     cursor: pointer;
 }
 
-a .logbutn{
+a .logbutn {
     margin: 20px 0;
     height: 60px;
     width: 15%;
@@ -347,10 +350,11 @@ a .logbutn{
     cursor: pointer;
 }
 
-.addbutton{
+.addbutton {
     text-align: center;
 }
-.button1{
+
+.button1 {
     height: 100%;
     width: 15%;
     background-color: #5465FF;
@@ -359,20 +363,21 @@ a .logbutn{
     border-radius: 8px;
     cursor: pointer;
     font-size: 32px;
-    border:0.1em solid #5465FF;
+    border: 0.1em solid #5465FF;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 0.4s;
     display: inline-block;
 }
-.button1:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     color: black;
 
 }
 
-form .logbutn input[type = submit]{
+form .logbutn input[type = submit] {
     height: 100%;
     width: 100%;
     background-color: #5465FF;
@@ -381,35 +386,37 @@ form .logbutn input[type = submit]{
     border-radius: 8px;
     cursor: pointer;
     font-size: 35px;
-    border:0.1em solid #5465FF;
+    border: 0.1em solid #5465FF;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 0.4s;
     display: inline-block;
 }
 
-form .logbutn input[type = submit]:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+form .logbutn input[type = submit]:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     color: black;
 
 }
 
-#welcometext{
+#welcometext {
     padding-top: 20px;
     font-family: 'Exo 2', sans-serif;
     font-weight: 700;
 }
 
-.card h1{
+.card h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
-.card table, .card .sortform{
+
+.card table, .card .sortform {
     width: 90%;
     margin-left: 5%;
 }
-main .workouttext{
+
+main .workouttext {
     font-size: 70px;
     font-family: 'Exo 2', sans-serif;
     font-weight: 700;
@@ -419,14 +426,15 @@ main .workouttext{
     top: 20%;
 }
 
-#updatebutton{
+#updatebutton {
     margin-top: 15px;
 }
 
-#goalbutton{
+#goalbutton {
     margin-bottom: 15px;
 }
-.invalid{
+
+.invalid {
     display: none;
     color: red;
     transition-duration: 1s;

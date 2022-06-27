@@ -22,7 +22,7 @@ public class Goals implements Serializable {
 
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id",insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     protected User user;
 
     @Column(name = "goal_text")
@@ -33,7 +33,7 @@ public class Goals implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @Column(name = "completed",nullable = false)
+    @Column(name = "completed", nullable = false)
     Boolean completed;
 
     @Column(name = "completedate", nullable = true)

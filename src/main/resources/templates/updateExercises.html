@@ -1,94 +1,97 @@
 <!DOCTYPE  html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css files/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="/JS%20files/sortReset.js"></script>
-  <title>Edit Exercises</title>
-  <link rel="icon" href="/pictures/favicon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css files/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
+          rel="stylesheet">
+    <script type="text/javascript" src="/JS%20files/sortReset.js"></script>
+    <title>Edit Exercises</title>
+    <link rel="icon" href="/pictures/favicon.png">
 </head>
 <body>
 <header>
-  <nav class="navclass">
-    <img src="/pictures/WLogoIcon.png" style="width: 60px;height: 46px;">
-    <div class="navbar">
-      <a th:href="@{/home}">Home</a>
-      <a th:href="@{/viewfood}">Food</a>
-      <a class="currpage" href="#">Workouts</a>
-      <a th:href="@{/viewgoals}">Goals</a>
-      <a th:href="@{/about}">About</a>
-      <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
-        <input type="submit" value="Logout">
-      </form>
-      <a href="javascript:document.logoutbutt.submit()">Logout</a>
-    </div>
-  </nav>
+    <nav class="navclass">
+        <img src="/pictures/WLogoIcon.png" style="width: 60px;height: 46px;">
+        <div class="navbar">
+            <a th:href="@{/home}">Home</a>
+            <a th:href="@{/viewfood}">Food</a>
+            <a class="currpage" href="#">Workouts</a>
+            <a th:href="@{/viewgoals}">Goals</a>
+            <a th:href="@{/about}">About</a>
+            <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutbutt">
+                <input type="submit" value="Logout">
+            </form>
+            <a href="javascript:document.logoutbutt.submit()">Logout</a>
+        </div>
+    </nav>
 </header>
 <main class="contain1">
-  <div class="header-img1" style="background: url(/pictures/workoutsheader.png) ;"></div>
-  <h1 class="workouttext">Workouts</h1>
+    <div class="header-img1" style="background: url(/pictures/workoutsheader.png) ;"></div>
+    <h1 class="workouttext">Workouts</h1>
 </main>
 <div class="card">
-  <div class="card-header">
-    <h1>Update Exercise</h1>
-  </div>
-<div class="Form">
-  <div class="container" id="updateform">
-    <div class="info">
+    <div class="card-header">
+        <h1>Update Exercise</h1>
     </div>
-    <form id ="upform" th:action="@{/exeupdate}" method="post" th:object="${exe}">
+    <div class="Form">
+        <div class="container" id="updateform">
+            <div class="info">
+            </div>
+            <form id="upform" th:action="@{/exeupdate}" method="post" th:object="${exe}">
 
-      <div class="mb-3">
-        <label class="form-label">Exercise name</label>
-        <input class="form-control" type="text" id="exename" th:value="${exe.exercises.name}" th:field="*{exercises.name}" readonly>
-      </div>
+                <div class="mb-3">
+                    <label class="form-label">Exercise name</label>
+                    <input class="form-control" type="text" id="exename" th:value="${exe.exercises.name}"
+                           th:field="*{exercises.name}" readonly>
+                </div>
 
-      <div class="mb-3">
-        <label class="form-label">Date</label>
-        <input class="form-control" type="date" id="date" th:value="${exe.date}" th:field="*{date}" readonly>
-      </div>
+                <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input class="form-control" type="date" id="date" th:value="${exe.date}" th:field="*{date}"
+                           readonly>
+                </div>
 
-      <div class="data" style="display: none">
-        <label>User ID</label>
-        <input type="number" id="userid" th:value="${exe.user_id}" th:field="*{user_id}">
-      </div>
+                <div class="data" style="display: none">
+                    <label>User ID</label>
+                    <input type="number" id="userid" th:value="${exe.user_id}" th:field="*{user_id}">
+                </div>
 
 
-      <div class="data" style="display: none">
-        <label>Exe_id</label>
-        <input type="number" id="exercise_id" th:value="${exe.exercise_id}" th:field="*{exercise_id}">
-      </div>
+                <div class="data" style="display: none">
+                    <label>Exe_id</label>
+                    <input type="number" id="exercise_id" th:value="${exe.exercise_id}" th:field="*{exercise_id}">
+                </div>
 
-      <div class="mb-3">
-        <label class="form-label">Weight (lbs)</label>
-        <input class="form-control" type="number" id="weight" th:field="*{weight}">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Sets</label>
-        <input class="form-control" type="number" id="sets" th:field="*{sets}">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Reps</label>
-        <input class="form-control" type="number" id="reps" th:field="*{reps}">
-      </div>
-      <div class="addbutton">
-          <button type="submit" class="button1"> Submit</button>
-      </div>
-    </form>
-    <div class="addbutton">
-      <a th:href="@{/viewexe}">
-        <button id="updatebutton" class="button1"> Cancel</button>
-      </a>
+                <div class="mb-3">
+                    <label class="form-label">Weight (lbs)</label>
+                    <input class="form-control" type="number" id="weight" th:field="*{weight}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Sets</label>
+                    <input class="form-control" type="number" id="sets" th:field="*{sets}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Reps</label>
+                    <input class="form-control" type="number" id="reps" th:field="*{reps}">
+                </div>
+                <div class="addbutton">
+                    <button type="submit" class="button1"> Submit</button>
+                </div>
+            </form>
+            <div class="addbutton">
+                <a th:href="@{/viewexe}">
+                    <button id="updatebutton" class="button1"> Cancel</button>
+                </a>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>

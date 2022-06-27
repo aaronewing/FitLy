@@ -20,8 +20,8 @@ public class AppController {
     private UserService service; //service to handle user requests
 
 
-    @GetMapping(value = {"/","/registerfail"})
-    public String viewHomePage(Model model){
+    @GetMapping(value = {"/", "/registerfail"})
+    public String viewHomePage(Model model) {
         model.addAttribute("user", new User());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {

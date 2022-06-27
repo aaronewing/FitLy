@@ -1,5 +1,5 @@
 <!DOCTYPE  html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,8 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
+          rel="stylesheet">
     <title>Add Food</title>
     <script type="text/javascript" src="/JS files/addForms.js"></script>
     <link rel="icon" href="/pictures/favicon.png">
@@ -41,42 +42,43 @@
     <div class="card-header">
         <h1>Add a Food</h1>
     </div>
-<div class="Form">
-    <div class="container" id="updateform">
-        <form id ="upform" th:action="@{process_food}" method="post">
-            <div class="invalid" id="existing">
-                <p>The entered food for that date already exists. You can update the calories and servings, or delete the food, from the view food page.</p>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Food Name</label>
-                <input class="form-control" list="food-names" type="text" th:name="foodname" required>
-                <datalist id="food-names">
-                    <option th:each="Food : ${allfoods}" th:value="${Food.name}" th:text="${Food.name}"></option>
-                </datalist>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Date</label>
-                <input class="form-control" type="date" id="date" th:name="date" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Calories Per Serving</label>
-                <input class="form-control" type="number" id="calories" th:name="calories">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Servings</label>
-                <input class="form-control" type="number" id="servings" th:name="servings">
-            </div>
+    <div class="Form">
+        <div class="container" id="updateform">
+            <form id="upform" th:action="@{process_food}" method="post">
+                <div class="invalid" id="existing">
+                    <p>The entered food for that date already exists. You can update the calories and servings, or
+                        delete the food, from the view food page.</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Food Name</label>
+                    <input class="form-control" list="food-names" type="text" th:name="foodname" required>
+                    <datalist id="food-names">
+                        <option th:each="Food : ${allfoods}" th:value="${Food.name}" th:text="${Food.name}"></option>
+                    </datalist>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input class="form-control" type="date" id="date" th:name="date" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Calories Per Serving</label>
+                    <input class="form-control" type="number" id="calories" th:name="calories">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Servings</label>
+                    <input class="form-control" type="number" id="servings" th:name="servings">
+                </div>
+                <div class="addbutton">
+                    <button class="button1" type="submit">Submit</button>
+                </div>
+            </form>
             <div class="addbutton">
-                <button class="button1" type="submit">Submit</button>
+                <a th:href="@{/viewfood}">
+                    <button id="updatebutton" class="button1"> Cancel</button>
+                </a>
             </div>
-        </form>
-        <div class="addbutton">
-            <a th:href="@{/viewfood}">
-                <button id="updatebutton" class="button1"> Cancel</button>
-            </a>
         </div>
-</div>
-</div>
+    </div>
 </div>
 <script type="text/javascript">
     addError();

@@ -28,23 +28,23 @@ public class User_Food implements Serializable {
     @JoinColumn(name = "food_id")
     protected Integer food_id;
 
-    @ManyToOne(cascade = { CascadeType.ALL})
-    @JoinColumn(name = "user_id",insertable = false, updatable = false)
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     protected User user;
 
     @ManyToOne
-    @JoinColumn(name = "food_id",insertable = false, updatable = false)
+    @JoinColumn(name = "food_id", insertable = false, updatable = false)
     protected Food food;
 
-    @Column (name = "Calories")
+    @Column(name = "Calories")
     private int calories;
 
-    @Column (name = "Servings")
+    @Column(name = "Servings")
     private int servings;
 
     @Id
     @Temporal(TemporalType.DATE)
-    @Column (name = "date", insertable = false, updatable = false)
+    @Column(name = "date", insertable = false, updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 }

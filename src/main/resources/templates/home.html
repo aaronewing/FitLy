@@ -1,5 +1,5 @@
 <!DOCTYPE  html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/css files/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto:wght@100&family=Ubuntu:wght@300&family=Work+Sans:wght@500&display=swap"
+          rel="stylesheet">
     <title>Home</title>
     <link rel="icon" href="/pictures/favicon.png">
 </head>
@@ -30,49 +31,50 @@
         </div>
     </nav>
 </header>
-    <div class = "container">
-        <div class="welcome">
+<div class="container">
+    <div class="welcome">
         <h1 id="welcometext"> Welcome [[${#authentication.getPrincipal().getFirstName()}]]!</h1>
-        </div>
-        <div class="divider">
-            <a th:href="@{/viewfood}" class="navlink">
-                <div class="navbox">
-                    <div class="image" style="background-image: url('/pictures/healthyfood.jpg');"></div>
-                    <div class="alltext">
-                        <h3>Food</h3>
-                        <p>In the food page, You can add, edit and display your consumed food and drinks!</p>
-                    </div>
-                </div>
-            </a>
-            <a th:href="@{/viewexe}" class="navlink">
-                <div class="navbox">
-                    <div class="image" style="background-image: url('/pictures/barbell.png');"></div>
-                    <div class="alltext">
-                        <h3>Workouts</h3>
-                        <p>In the workout page, you can add, edit and display your exercise routine!</p>
-                    </div>
-                </div>
-            </a>
-            <a th:href="@{/viewgoals}" class="navlink">
-                <div class="navbox">
-                    <div class="image" style="background-image: url('/pictures/goals.jpg');"></div>
-                    <div class="alltext">
-                        <h3>Goals</h3>
-                        <p>In the goals page, you can add and view your in progress or completed health and fitness goals! </p>
-                    </div>
-                </div>
-            </a>
-            <a th:href="@{/about}" class="navlink">
-                <div class="navbox">
-                    <div class="image" style="background-image: url('/pictures/skyline.jpg');"></div>
-                    <div class="alltext">
-                        <h3>About & Contact</h3>
-                        <p>In the about page, You can see a few words about me and contact me with any problems!</p>
-                    </div>
-                </div>
-            </a>
-        </div>
     </div>
-    
+    <div class="divider">
+        <a th:href="@{/viewfood}" class="navlink">
+            <div class="navbox">
+                <div class="image" style="background-image: url('/pictures/healthyfood.jpg');"></div>
+                <div class="alltext">
+                    <h3>Food</h3>
+                    <p>In the food page, You can add, edit and display your consumed food and drinks!</p>
+                </div>
+            </div>
+        </a>
+        <a th:href="@{/viewexe}" class="navlink">
+            <div class="navbox">
+                <div class="image" style="background-image: url('/pictures/barbell.png');"></div>
+                <div class="alltext">
+                    <h3>Workouts</h3>
+                    <p>In the workout page, you can add, edit and display your exercise routine!</p>
+                </div>
+            </div>
+        </a>
+        <a th:href="@{/viewgoals}" class="navlink">
+            <div class="navbox">
+                <div class="image" style="background-image: url('/pictures/goals.jpg');"></div>
+                <div class="alltext">
+                    <h3>Goals</h3>
+                    <p>In the goals page, you can add and view your in progress or completed health and fitness
+                        goals! </p>
+                </div>
+            </div>
+        </a>
+        <a th:href="@{/about}" class="navlink">
+            <div class="navbox">
+                <div class="image" style="background-image: url('/pictures/skyline.jpg');"></div>
+                <div class="alltext">
+                    <h3>About & Contact</h3>
+                    <p>In the about page, You can see a few words about me and contact me with any problems!</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
 </body>
 </html>
