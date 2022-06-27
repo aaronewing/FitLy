@@ -50,10 +50,4 @@ public class GoalsService {
         goal.setCompletedate(date);
         return repo.save(goal);
     }
-
-    public List<Goals> getIncompleteGoalsbyDate(Integer user_id, Date date){
-        return repo.getincompleteGoalsbyDate(user_id,date);
-    }
-
-
 }

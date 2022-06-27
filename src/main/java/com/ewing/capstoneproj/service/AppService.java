@@ -34,7 +34,7 @@ public class AppService {
         return food;
     }
 
-    public Food findByName(String name){
+    public Food findFoodByName(String name){
         Food food = repo.findFoodByName(name);
         return food;
     }
@@ -45,7 +45,7 @@ public class AppService {
     }
 
     public Food savefood(Food food){
-        Food existing = findByName(food.getName());
+        Food existing = findFoodByName(food.getName());
         if (existing != null){
             return null;
         } else{
@@ -57,7 +57,7 @@ public class AppService {
 
     public User_Food saveUserFood(User user, Food food, Date date, int calories, int servings){
         savefood(food);
-        Food newfood = findByName(food.getName());
+        Food newfood = findFoodByName(food.getName());
         User_Food userFood = new User_Food();
         userFood.setUser(user);
         userFood.setFood_id(newfood.getId());
@@ -148,6 +148,9 @@ public class AppService {
     public User_Exercises getUserExeByKeys(User user, Date date, Exercises findid){
         if (findid.getId() == null){
             Exercises exercise_id = exerepo.findExerciseByName(findid.getName());
+            if(exercise_id == null){
+                return null;
+            }
             User_Exercises exercises = userexerepo.getUserExerciseByKeys(user.getId(),date,exercise_id.getId());
             return exercises;
         }else{

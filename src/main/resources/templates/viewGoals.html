@@ -18,7 +18,7 @@
 <header>
     <nav class="navclass">
         <div class="navimage">
-            <img src="/pictures/WLogoTextIcon.png" style="width: 151px;height: 42px;">
+            <img src="/pictures/WLogoIcon.png" style="width: 60px;height: 46px;">
         </div>
         <div class="navbar">
             <a th:href="@{/home}">Home</a>
@@ -41,17 +41,6 @@
     <div class="card-header">
         <h1>[[${#authentication.getPrincipal().getFirstName()}]]'s Goals</h1>
     </div>
-<div class="sortform" style="display: none">
-    <div class="sortcontain">
-        <form id="sortform" th:action="@{viewgoals}" method="post">
-            <div class="sort"><input type="date" id="date1" th:name="incompletedate" th:value="${datevalue}"
-                                     onchange="this.form.submit()">
-                <button type="button" onclick="resetButton()">Show All</button>
-            </div>
-        </form>
-    </div>
-</div>
-
 <div class="tablecontainer">
     <h2>Current Goals</h2>
     <table class="table table-border">

@@ -73,26 +73,4 @@ public class GoalsController {
         goalsService.saveGoals(user,goaltext,false,date);
         return "redirect:/viewgoals";
     }
-
-    @PostMapping("/viewgoals")
-    public String viewgoalsPost(Model model, @RequestParam(value = "incompletedate") String date) throws ParseException {
-        User user = userService.getLoggedUser();
-        if (date.equals("")) {
-            model.addAttribute("datevalue", date);
-            List<Goals> incomplete = goalsService.incompleteGoalsList(user.getId());
-            model.addAttribute("incomplete", incomplete);
-            List<Goals> complete = goalsService.completeGoalsList(user.getId());
-            model.addAttribute("complete", complete);
-            return "viewGoals";
-        } else {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parseddate = format.parse(date);
-            List<Goals> incomplete = goalsService.getIncompleteGoalsbyDate(user.getId(),parseddate);
-            model.addAttribute("incomplete", incomplete);
-            List<Goals> complete = goalsService.completeGoalsList(user.getId());
-            model.addAttribute("complete", complete);
-            model.addAttribute("datevalue", date);
-            return "viewGoals";
-        }
-    }
 }

@@ -51,7 +51,7 @@ nav p{
     font-size: 35px;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 nav a{
@@ -70,6 +70,7 @@ nav a{
     font-weight: normal;
     padding-bottom: 18px;
 }
+
 nav a.currpage{
     color: #9BB1FF;
     text-decoration: none;
@@ -190,7 +191,7 @@ nav a:hover{
 }
 
 .navimage{
-    padding-right: 380px;
+    padding-right: 470px;
 }
 
 #about h4{

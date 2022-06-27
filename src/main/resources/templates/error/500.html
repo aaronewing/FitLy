@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th = "http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error 400 (Illegal operation)</title>
+    <title>Error 500 (Illegal operation)</title>
     <link rel="icon" href="/pictures/favicon.png">
     <link rel="stylesheet" href="/css files/404.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,8 @@
 <body>
 <div class="error">
     <img class="logo" src="/pictures/AltLogoIcon.png">
-    <h2>Hey, a 400 error!</h2>
-    <p>Your browser has issued an illegal request.</p>
+    <h2>Hey, a 500 error!</h2>
+    <p>We messed something up trying to fufill your reqeust, please try again.</p>
     <a th:href="@{/}">Return to home</a>
 </div>
 

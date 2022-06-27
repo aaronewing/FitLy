@@ -6,11 +6,12 @@ import com.ewing.capstoneproj.models.User_Exercises;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-
+@Repository
 public interface UserExerciseRepository extends JpaRepository<User_Exercises, UserExerciseID> {
     @Query("SELECT u from User_Exercises u WHERE u.user_id = ?1")
     List<User_Exercises> findUserExerciseById(Integer user_id);
