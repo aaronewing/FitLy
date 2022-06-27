@@ -1,5 +1,5 @@
 
-![](D:\intellj proj\FitLy\src\main\resources\static\pictures\facepic.png)
+![image](D:\intellj proj\CapstoneProj\src\main\resources\static\pictures\WLogoTextIcon.png)
 # Capstone Project: FitLy
 ## Created By Aaron Ewing
 
