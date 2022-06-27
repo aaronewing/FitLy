@@ -160,7 +160,7 @@ public class AppService { //contains methods for handling food, exercises, user_
             }
             User_Food userfood = userfoodrepo.getUserFoodByKeys(user.getId(),date,newfood.getId()); //if food id is not null find a user food by those keys
             return userfood; //return the user food (if its null it wont error, if it is not null it will error)
-        }else{ //all other non error checking cases
+        }else{ //all other non error checking case
             User_Food userfood = userfoodrepo.getUserFoodByKeys(user.getId(),date, food.getId());
             return userfood;
         }
