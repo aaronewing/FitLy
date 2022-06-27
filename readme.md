@@ -1,6 +1,5 @@
 
-![image][src/main/resources/static/pictures/facepic.png]
-
+![](D:\intellj proj\FitLy\src\main\resources\static\pictures\facepic.png)
 # Capstone Project: FitLy
 ## Created By Aaron Ewing
 
