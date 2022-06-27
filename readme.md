@@ -1,5 +1,5 @@
 
-![image](D:\intellj proj\CapstoneProj\src\main\resources\static\pictures\WLogoTextIcon.png)
+![image](\src\main\resources\static\pictures\WLogoTextIcon.png)
 # Capstone Project: FitLy
 ## Created By Aaron Ewing
 
