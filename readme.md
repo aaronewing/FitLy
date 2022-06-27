@@ -127,6 +127,26 @@ Include sign-up and login functionality with encrypted passwords using bcrypt (S
 
 </details>
 
+<details><summary>
+
+### User Stories:
+
+</summary>
+
+1.	As a user, I want to be able to enter in my specific workout so that I can track which workouts ive done
+2.	As a user, I want to be able to enter in my specific reps and weight for my workouts so I can track my weekly progress
+3.	As a user, I want to be able to see my entered workouts whenever I log in so I can track my workout data
+4.	As a user, I want to be able to set my account details (Name, Height, Weight) so that I can personalize my account
+5.	As a user, I want to be able to log in so that I can see my saved data
+6.	As a user, I want to be able to enter in the food I have eaten so I can track it.
+7.	As a user, I want to be able to enter the calories for the food I ate so I can track my daily intake.
+8.	As a user, I want to be able to enter my servings for the food I ate to track the servings.
+9.	As a user, I want to be able to sort my workouts by week so that I can see what I do week to week
+10.	As a user, I want to be able to sort my food by daily and weekly so that I can track my eating habits.
+11.	As a user, I want to be able to set future goals so I will have reminders of what I want to work for.
+12.	As a user, I want to be able to enter a specific number for sets I completed to track that along with my reps.
+
+</details>
 
 
 
