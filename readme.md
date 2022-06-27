@@ -28,7 +28,7 @@ Below, I have the requirements and where they can be seen/found on the page and 
 
 <details><summary>
 
-### Project Structure, Standardizatrion, and Conventions 
+### Project Structure, Standardization, and Conventions 
 
 </summary>
 
