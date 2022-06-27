@@ -109,11 +109,9 @@ Include sign-up and login functionality with encrypted passwords using bcrypt (S
 
 </details>
 
-<details><summary>
+
 
 ## TECHONOLOGIES USED:
-
-</summary>
 
 - MariaDB
 - Hibernate
@@ -127,7 +125,7 @@ Include sign-up and login functionality with encrypted passwords using bcrypt (S
 - JavaScript
 - Thymeleaf
 
-</details>
+
 
 <details><summary>
 
