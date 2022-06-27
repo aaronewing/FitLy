@@ -1,63 +1,132 @@
-
-![image](D:\intellj proj\CapstoneProj\src\main\resources\static\pictures\WLogoTextIcon.png)
 # Capstone Project: FitLy
+![image](https://github.com/aewing7/FitLy/blob/master/src/main/resources/static/pictures/AltLogoTextIcon.png?raw=true)
 ## Created By Aaron Ewing
 
-### LINK TO HOSTED GITHUB SITE https://aewing7.github.io/
+### GitHub Repository Link: https://github.com/aewing7/FitLy
 
-### INTRODUCTION:
+### Introduction:
 
-This project is the basic outline for a fitness app. It has a landing page where you can sign-in or log-in. A home page where you can select your next page. Currently, the only working page is the about me. This was done to keep the project simple while hitting all the requirements.
+Fitly is a fitness tracker web app that can track your exercises, food and drink and goals throughout your fitness journey. 
 
-This project was created as the skeleton page for what is going to be my capstone project. Things will change and look different when it is submitted for the capstone but I used this SBA has a chance to get ahead/get a concept of what I want my capstone pages to look like or what functionality I might add. Below, you will find a how to use the page.
-
-
-### HOW TO USE:
-
-index.html (the main page) has 2 buttons, a sign-in or sign-up. Right now these pages dont reference or store log-in information so you can choose either one to get to the homepage. Just enter a valid email and a password that has more than 6 characters.
-
-home.html is the landing page. It has a working navbar and buttons you can click. Currently, the only clickable button is the about page which will bring you to about.html
-
-about.html has general information about me (placeholder information). It also has a contact form that allows you to input your name, email and message. You can only enter in one email per session (which is right now reset on a refresh). Below, I have the requirements and where they can be seen/found on the page and in the code.
-
-## REQUIREMENTS:
-
-### HTML
-
-- Have at least 3 pages, keep the grid system consistent as much as possible (index.html, home.html and about.html)
-- Use at least 10 different HTML tags (Can be found across all 3 HTML files)
-- Use HTML tables (Table can be found in the about.html)
-- Implement at least two uses for forms (Log-in/Sign-up Forms (found on index.html) and Contact Me Forms (found on about.html))
-- Dropped Down Menu (Found on the sign-up form. Drop down menu is used to select country)
-- Use web fonts (Used google fonts across all pages )
-- Use different types of content in the form of text, images, videos, and GIFs (Can be found across all pages)
-- Use regex validation (Used to validate email and password. Can be found in index.js)
+This project was created as my capstone for my TekSystems training cohort 
 
 
-### CSS
+### How to use:
 
-- Inline, internal, and external styling (Can be found in HTML files and Style.css and Index.css)
-- Use five different CSS selectors (Can be found in the css files)
-- Don’t use too many fonts (2 Fonts used in total)
-- Use colors that complement each other
-- Use Flexbox (Optional) (Flexbox was used in different elements found in my Style.css)
-- Use SASS/SCSS (Optional) (Unused)
-- Use animations (Optional) (Unused)
+Download the project from the repository and import it into your IDE. Make sure you set your database properties to your information so the project has a database to access and edit. The default database in the application.properties is "capstone" but can be edited to any database you want to map it to.
 
+data.sql will run on program start and will populate the specified database with the required data. This data.sql file should run automattical and will be ignored if the data is already added into your database.
 
-### Javascript
+To use the web app, create an account using the sign-up button. From there, you will be redirected back to the home page and will be able to sign-in and will be taken to your home page. From the home page you can deciede what you want to track from exercises, food(and drink) and goals or view the about page which tells you how to contact me! 
 
-- External scripts (about.js, index.js, signin.js)
-- Use variables, if statements, loops, at least one form of collections, functions/call back, and events (Can be found across all js files. Event is used in index.js and a loop was used in about.js)
-- Use AJAX (Optional)  (Unused)
-- Use JSON or XML (Optional) (Unused)
-- Use JQuery (Optional) (Unused)
+Below, I have the requirements and where they can be seen/found on the page and in the code (If applicable).
 
 
+## Requirements:
+
+<details><summary>
+
+### Project Structure, Standardizatrion, and Conventions 
+
+</summary>
+
+- The project package structure should be shown in class where the models, DAO/repositories, services, controllers, exceptions, etc., have a package. Views or templates do not require a package (Found in main folder)
+- Each class should include comments to describe the class and the methods (Found in classes)
+- Have the project pushed into GitHub from the early stage of development and hosted on GitHub with a “readme” file documenting an overview of your project (https://github.com/aewing7/FitLy)
+</details>
+
+<details><summary>
+
+### Core Java and Models
+
+</summary>
+
+- Utilize Java classes with constant variables (i.e., variables that never change from their initial value). The value of these variables can be requested parameters, SQL queries used in the DAO, names of HTML pages, or URL patterns to forward a request to (Found throughout project)
+- Have at least four models and corresponding tables in a relational database (if four models/tables do not make sense for your application, discuss this with your instructor) (Found in models package)
+- At least four models (Found in models package)
+- Apply exception handling (Exceptions found in exception package and exceptions thrown in controllers)
+
+</details>
+
+<details><summary>
+
+### Database, ORM, and Hibernate
+
+</summary>
+
+- Use MariaDB as your DBMS (check with your instructor if you need support to install MariaDB on your computer) (Used mariaDB)
+- Include a schema diagram of the tables and the SQL you used for the database (Schema found in schema folder in project root)
+- The database configuration file must be set up correctly in your Spring application through “spring initializr” (in resources)
+- Include at least three custom queries (Queries found in repositories)
+- Use Hibernate or Jakarta Persistence API (JPA) directly or through Spring Data JPA (Used Hibernate and Spring Data JPA)
+- Your application should include examples for all four CRUD operations (Create, Read, Update, and Delete) - (Found in every controller, can be seen running the app)
+
+</details>
+
+<details><summary>
+
+### Front-end Development
+
+</summary>
+
+- Use CSS to style the Web pages. Use an external CSS stylesheet (internal styling may be used along with frameworks such as Bootstrap, but you must still include and utilize a custom CSS external file) (Css files found in resources/static/css files)
+- Your application should include six different views/pages (HTML views can be found in resources)
+- Use HTML to lay out the pages and Thymeleaf to make the pages dynamic (Frameworks such as Angular or React can also be used but will not be covered in the course. Both Angular or React are optional.). The application’s presentation must meet the general view requirements. (Found throughout the .html files)
+- Use at least one JavaScript script linked from an external script file (Internal scripts may be used along with frameworks such as jQuery, but you must still include and utilize a custom JavaScript external file) (JS found in resources/static/js files)
+- Include a navigation section that is included across multiple pages (Navbar found at the top of all pages once logged in)
+
+
+</details>
+
+<details><summary>
+
+### Spring Framework
+
+</summary>
+
+- Use Spring Boot to develop your project (Completed)
+- Models should be annotated for binding using Spring data binding through Jakarta and/or Hibernate validation (Found in models package)
+- Include and implement at least two repositories and two service classes/interfaces (Found in service package and repository package)
+- Include at least two ways of creating a managed bean/object (Completed)
+- Use correct implementations of dependency injection with appropriate use of the @Autowired annotation (Completed)
+- Include at least one example of session management (Spring Security can be used for session management) (Using Spring Security for session management)
+- Use Transaction and request/response logging (write log to a file) (logging find in the root)
+Include sign-up and login functionality with encrypted passwords using bcrypt (Spring Security will satisfy this requirement) (Completed with Spring Security)
+
+
+</details>
+
+<details><summary>
+
+### Unit Testing
+
+</summary>
+
+- Test each query created in the repositories (Found in test package)
+- Test at least one method in each service class (Found in test package)
+
+</details>
+
+<details><summary>
 
 ## TECHONOLOGIES USED:
 
-Only Technologies used were CSS HTML and Javascript. I used GitHub to host the website (Link: https://aewing7.github.io/ )
+</summary>
+
+- MariaDB
+- Hibernate
+- Spring Data
+- Java
+- Spring Boot
+- Spring Security
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- Thymeleaf
+
+</details>
+
 
 
 
