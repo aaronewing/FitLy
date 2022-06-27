@@ -1,5 +1,5 @@
 
-![image](https://github.com/aewing7/FitLy/blob/master/src/main/resources/static/pictures/WLogoTextIcon.png)
+![image](https://github.com/aewing7/FitLy/blob/master/src/main/resources/static/pictures/AltLogoTextIcon.png?raw=true)
 # Capstone Project: FitLy
 ## Created By Aaron Ewing
 
