@@ -4,6 +4,8 @@
 
 ### GitHub Repository Link: https://github.com/aewing7/FitLy
 
+### ATTN: Server port is set to 8081, use http://localhost:8081/ to view project or change the port in the application.properties located in the resources folder
+
 ### Introduction:
 
 Fitly is a fitness tracker web app that can track your exercises, food and drink and goals throughout your fitness journey. 
@@ -15,9 +17,9 @@ This project was created as my capstone for my TekSystems training cohort
 
 Download the project from the repository and import it into your IDE. Make sure you set your database properties to your information so the project has a database to access and edit. The default database in the application.properties is "capstone" but can be edited to any database you want to map it to.
 
-data.sql will run on program start and will populate the specified database with the required data. This data.sql file should run automattical and will be ignored if the data is already added into your database.
+data.sql will run on program start and will populate the specified database with the required data. This data.sql file should run automatically and will be ignored if the data is already added into your database.
 
-To use the web app, create an account using the sign-up button. From there, you will be redirected back to the home page and will be able to sign-in and will be taken to your home page. From the home page you can deciede what you want to track from exercises, food(and drink) and goals or view the about page which tells you how to contact me! 
+To use the web app, create an account using the sign-up button. From there, you will be redirected back to the home page and will be able to sign in and will be taken to your home page. From the home page you can decide what you want to track from exercises, food(and drink) and goals or view the about page which tells you how to contact me! 
 
 Below, I have the requirements and where they can be seen/found on the page and in the code (If applicable).
 
@@ -134,16 +136,16 @@ Include sign-up and login functionality with encrypted passwords using bcrypt (S
 </summary>
 
 1.	As a user, I want to be able to enter in my specific workout so that I can track which workouts ive done
-2.	As a user, I want to be able to enter in my specific reps and weight for my workouts so I can track my weekly progress
-3.	As a user, I want to be able to see my entered workouts whenever I log in so I can track my workout data
+2.	As a user, I want to be able to enter in my specific reps and weight for my workouts, so I can track my weekly progress
+3.	As a user, I want to be able to see my entered workouts whenever I log in, so I can track my workout data
 4.	As a user, I want to be able to set my account details (Name, Height, Weight) so that I can personalize my account
 5.	As a user, I want to be able to log in so that I can see my saved data
-6.	As a user, I want to be able to enter in the food I have eaten so I can track it.
-7.	As a user, I want to be able to enter the calories for the food I ate so I can track my daily intake.
+6.	As a user, I want to be able to enter the food I have eaten, so I can track it.
+7.	As a user, I want to be able to enter the calories for the food I ate, so I can track my daily intake.
 8.	As a user, I want to be able to enter my servings for the food I ate to track the servings.
 9.	As a user, I want to be able to sort my workouts by week so that I can see what I do week to week
 10.	As a user, I want to be able to sort my food by daily and weekly so that I can track my eating habits.
-11.	As a user, I want to be able to set future goals so I will have reminders of what I want to work for.
+11.	As a user, I want to be able to set future goals, so I will have reminders of what I want to work for.
 12.	As a user, I want to be able to enter a specific number for sets I completed to track that along with my reps.
 
 </details>
