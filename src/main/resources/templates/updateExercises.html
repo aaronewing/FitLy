@@ -71,15 +71,15 @@
 
                 <div class="mb-3">
                     <label class="form-label">Weight (lbs)</label>
-                    <input class="form-control" type="number" id="weight" th:field="*{weight}">
+                    <input class="form-control" type="number" id="weight" th:field="*{weight}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Sets</label>
-                    <input class="form-control" type="number" id="sets" th:field="*{sets}">
+                    <input class="form-control" type="number" id="sets" th:field="*{sets}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Reps</label>
-                    <input class="form-control" type="number" id="reps" th:field="*{reps}">
+                    <input class="form-control" type="number" id="reps" th:field="*{reps}" required>
                 </div>
                 <div class="addbutton">
                     <button type="submit" class="button1"> Submit</button>

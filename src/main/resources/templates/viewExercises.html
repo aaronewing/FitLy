@@ -68,7 +68,7 @@
             <tr th:each="exes : ${userexes}">
                 <td th:text="${exes.date}"></td>
                 <td th:text="${exes.exercises.name}"></td>
-                <td th:text="${exes.weight + 'lbs'}"></td>
+                <td th:text="${exes.weight + ' lbs'}"></td>
                 <td th:text="${exes.sets + ' x '+ exes.reps}"></td>
                 <td>
                     <a th:href="@{/upexe/{userid}/{date}/{exeid}(userid=${exes.user_id},date=${exes.date},exeid=${exes.exercise_id})}"
