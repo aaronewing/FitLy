@@ -111,7 +111,7 @@ Include sign-up and login functionality with encrypted passwords using bcrypt (S
 
 
 
-## TECHONOLOGIES USED:
+## TECHNOLOGIES USED:
 
 - MariaDB
 - Hibernate
