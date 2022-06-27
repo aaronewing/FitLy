@@ -15,6 +15,7 @@ import org.springframework.test.annotation.Rollback;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class ExerciseRepositoryTest {
+    //Exercise Repository tests, tests the query findexercisebyname
     @Autowired
     ExerciseRepository repo;
 

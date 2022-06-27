@@ -14,6 +14,7 @@ import org.springframework.test.annotation.Rollback;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class FoodRepositoryTest {
+    //Food Repository tests, tests the query findfoodbyname
     @Autowired
     FoodRepository repo;
 

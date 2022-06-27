@@ -17,7 +17,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class UserFoodRepositoryTest {
-
+    //User_Food repository tests, tests the queries FindUserFoodByID, findUserFoodbyDate, deleteUserFoodByKeys, getUserFoodByKeys
     @Autowired
     UserFoodRepository repo;
     @Autowired

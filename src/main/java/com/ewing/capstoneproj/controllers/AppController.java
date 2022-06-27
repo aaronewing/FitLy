@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AppController {
+    final String redirecthome = "redirect:home";
+    final String index = "index";
     @Autowired
     private UserService service; //service to handle user requests
 
@@ -23,9 +25,9 @@ public class AppController {
         model.addAttribute("user", new User());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "index"; //keep returning index if not logged in
+            return index; //keep returning index if not logged in
         }
-        return "redirect:home"; //return home if logged in
+        return redirecthome; //return home if logged in
     }
 
     @PostMapping("/process_register") //register mapping

@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Transactional
 public class UserServiceTest {
+    //App Service tests the method findUserByEmail
     @Autowired
     UserService service;
 

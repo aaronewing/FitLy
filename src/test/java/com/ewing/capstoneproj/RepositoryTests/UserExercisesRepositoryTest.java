@@ -23,7 +23,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class UserExercisesRepositoryTest {
-
+    //User_Exercise repository tests, tests the queries FindUserExerciseByID, findUserExercisebyDate, deleteUserByKeys, getUserExercisesByKeys
     @Autowired
     UserExerciseRepository repo;
     @Autowired

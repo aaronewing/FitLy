@@ -43,19 +43,20 @@ public class WebSecurityConfig{
                         "/upexe/{userid}/{date}/{exeid}", "/upfood/{userid}/{date}/{exeid}",
                         "/delexe/{userid}/{date}/{exeid}","/deletefood/{userid}/{date}/{exeid}",
                         "/changegoal/{goalid}/{userid}",
-                        "/deletegoal/{goalid}/{userid}").authenticated()
-                .anyRequest().permitAll()
+                        "/deletegoal/{goalid}/{userid}",
+                        "/change/{goalid}/{userid}").authenticated() //have to be logged-in to access these sites
+                .anyRequest().permitAll()//permit the rest of the pages to be accessed by anyone
                 .and()
 
-                .formLogin()
+                .formLogin() //log in parameters
                 .loginPage("/")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/home")
-                .failureUrl("/?error")
+                .failureUrl("/?error") //if log in fails goes here
                 .permitAll()
                 .and()
 
-                .logout().permitAll()
+                .logout().permitAll()//logout parameters
                 .logoutUrl("/logout")
                 .and();
         return http.build();

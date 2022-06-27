@@ -22,6 +22,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class GoalsRepositoryTest {
+    //Goals repository tests, tests the queries getIncompleteTests, getCompleteTests, getGoalsByGoal_Id, deleteGoalsByGoal_Id
     @Autowired
     GoalsRepository repo;
 

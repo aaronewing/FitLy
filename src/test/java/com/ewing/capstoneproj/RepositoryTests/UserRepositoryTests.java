@@ -16,6 +16,7 @@ import org.springframework.test.annotation.Rollback;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback
 public class UserRepositoryTests {
+    //User repository tests the query FindUserByEmail
     @Autowired
     UserRepository userRepository;
 

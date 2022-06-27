@@ -78,6 +78,7 @@
             <td th:text="${complete.date}"></td>
             <td th:text="${complete.completedate}"></td>
             <td>
+                <a th:href="@{/change/{goalid}/{userid}(goalid=${complete.goal_id},userid=${complete.user_id})}"  class="btn btn-primary">Mark as incomplete</a>
                 <a th:href="@{/deletegoal/{goalid}/{userid}(goalid=${complete.goal_id},userid=${complete.user_id})}" onclick="return confirm('Do you want to remove this goal from your completed list?')" class="btn btn-danger">Delete</a>
             </td>
         </tr>

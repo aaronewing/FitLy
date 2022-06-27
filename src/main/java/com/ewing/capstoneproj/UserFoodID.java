@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Embeddable
-public class UserFoodID implements Serializable {
+public class UserFoodID implements Serializable { //key class for the user_food model/table
     protected Integer user_id;
     protected Integer food_id;
     protected Date date;

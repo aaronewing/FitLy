@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Data
 @Embeddable
-public class UserExerciseID implements Serializable {
+public class UserExerciseID implements Serializable { //key class for the user_exercise model/table
     protected Integer user_id;
     protected Integer exercise_id;
     protected Date date;

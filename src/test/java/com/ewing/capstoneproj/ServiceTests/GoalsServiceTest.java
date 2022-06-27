@@ -20,6 +20,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Transactional
 public class GoalsServiceTest {
+    //App Service tests the method saveGoal
     @Autowired
     GoalsService goalservice;
 

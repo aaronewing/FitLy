@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Transactional
 public class AppServiceTest {
+    //App Service tests the method saveFood
     @Autowired
     AppService appservice;
 
